@@ -680,7 +680,7 @@
       <div class="filter-bar">
         <span class="filter-label">Progress:</span>
         <button class="filter-btn active" onclick="setFilter('progress','all',this)">Semua</button>
-        <button class="filter-btn" onclick="setFilter('progress','Disampaikan',this)">Diterima</button>
+        <button class="filter-btn" onclick="setFilter('progress','Diterima',this)">Diterima</button>
         <button class="filter-btn" onclick="setFilter('progress','Disampaikan',this)">Disampaikan</button>
         <button class="filter-btn" onclick="setFilter('progress','Direalisasikan',this)">Direalisasikan</button>
         <button class="filter-btn" onclick="setFilter('progress','Ditolak',this)">Ditolak</button>
@@ -1105,7 +1105,7 @@ function initCharts() {
     { num: data.length, label: 'Total Aspirasi', color: 'var(--accent)' },
     { num: progressCounts['Direalisasikan'], label: 'Direalisasikan', color: 'var(--accent)' },
     { num: progressCounts['Disampaikan'], label: 'Disampaikan', color: 'var(--amber)' },
-    { num: progressCounts['Diterima'], label: 'Disampaikan', color: 'var(--amber)' },
+    { num: progressCounts['Diterima'], label: 'Diterima', color: 'var(--blue)' },
     { num: progressCounts['Ditolak'], label: 'Ditolak', color: 'var(--red)' },
     { num: progressCounts['Tidak ada tanggapan'], label: 'Tidak ada tanggapan', color: '#aaa' },
   ].map(s => `<div class="progress-stat"><div class="progress-stat-num" style="color:${s.color}">${s.num}</div><div class="progress-stat-label">${s.label}</div></div>`).join('');
