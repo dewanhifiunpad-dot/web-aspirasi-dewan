@@ -920,7 +920,7 @@ let visibleCount = 5;
 async function loadData() {
     try {
         // Mengurutkan dari tanggal terbaru. Pastikan nama kolom di Airtable adalah "Tanggal"
-        const urlWithSort = `${AIRTABLE_URL}?sort[0][field]=Tanggal%20Pengiriml&sort[0][direction]=desc`;
+        const urlWithSort = `${AIRTABLE_URL}?sort[0][field]=Tanggal%20Pengirim&sort[0][direction]=desc`;
         
         const response = await fetch(urlWithSort, {
             headers: { 'Authorization': `Bearer ${AIRTABLE_PAT}` }
