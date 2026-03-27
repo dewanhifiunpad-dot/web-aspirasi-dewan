@@ -765,7 +765,7 @@
           </div>
           <div class="form-group">
             <label>NPM</label>
-            <input type="text" id="f-npm" placeholder="2200000000" maxlength="10" />
+            <input type="text" id="f-npm" placeholder="1403102xxxxxx" maxlength="13" />
           </div>
           <div class="form-group">
             <label>Angkatan</label>
@@ -1260,15 +1260,24 @@ async function submitForm() {
             body: JSON.stringify(payload)
         });
         
-        if (!res.ok) throw new Error('Submit failed');
+        // Cek jika Airtable menolak data (misal error 422 atau 400)
+        if (!res.ok) {
+            const errData = await res.json();
+            console.error("Detail Penolakan Airtable:", errData);
+            throw new Error(`Data ditolak oleh server (Status: ${res.status})`);
+        }
         
         await loadData(); // Reload UI otomatis dengan data terbaru
         document.getElementById('thankYouModal').classList.add('open');
         resetForm();
+        
     } catch (e) {
-        alert('Gagal mengirim aspirasi. Periksa koneksi internet kamu dan coba lagi.');
-        console.error(e);
+        // Nah, ini pesan error barunya! (Tidak menyalahkan internet lagi)
+        alert('Maaf, aspirasi gagal terkirim. Terjadi kesalahan pada sistem atau format data tidak sesuai. Silakan hubungi admin HIFI jika masalah berlanjut.');
+        console.error("Sistem Error:", e);
+        
     } finally {
+        // Mengembalikan tombol ke keadaan semula
         btn.disabled = false;
         btn.innerHTML = '<span>✦</span> Kirim Aspirasi Sekarang';
     }
