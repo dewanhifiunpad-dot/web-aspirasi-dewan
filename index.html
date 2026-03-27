@@ -1063,7 +1063,7 @@ function renderTimeline() {
             <span class="tl-tag ${purposeColor(d.purpose)}">${escapeHtml(d.purpose)}</span>
             <span class="tl-tag ${typeColor(d.type)}">${escapeHtml(d.type)}</span>
           </div>
-          <button class="tl-tanggapan-btn" onclick="openTanggapan(${d.id})">
+          <button class="tl-tanggapan-btn" onclick="openTanggapan('${d.id}')">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             Tanggapan
           </button>
