@@ -1111,21 +1111,26 @@ function initCharts() {
   ].map(s => `<div class="progress-stat"><div class="progress-stat-num" style="color:${s.color}">${s.num}</div><div class="progress-stat-label">${s.label}</div></div>`).join('');
 
   // Update hero stats
-  document.getElementById('totalCount').textContent = data.length;
-  document.getElementById('realCount').textContent = progressCounts['Direalisasikan'];
-  document.getElementById('disampaikanCount').textContent = progressCounts['Disampaikan'];
-  document.getElementById('diterimaCount').textContent = progressCounts['Diterima'];
-  document.getElementById('ditolakCount').textContent = progressCounts['Ditolak'];
-  document.getElementById('noResponseCount').textContent = progressCounts['Tidak ada tanggapan'];
+  const setTxt = (id, val) => { const el = document.getElementById(id); if(el) el.textContent = val; };
+  
+  // Update hero stats (Aman dari null)
+  setTxt('totalCount', data.length);
+  setTxt('realCount', progressCounts['Direalisasikan'] || 0);
+  setTxt('disampaikanCount', progressCounts['Disampaikan'] || 0);
+  setTxt('ditolakCount', progressCounts['Ditolak'] || 0);
+  setTxt('noResponseCount', progressCounts['Tidak ada tanggapan'] || 0);
 
   const total = data.length || 1;
+  
+  // Helper anti-error untuk update progress bar
+  const setW = (id, val) => { const el = document.getElementById(id); if(el) el.style.width = val; };
+  
   setTimeout(() => {
-    document.getElementById('totalBar').style.width = '100%';
-    document.getElementById('realBar').style.width = (progressCounts['Direalisasikan'] / total * 100) + '%';
-    document.getElementById('disampaikanBar').style.width = (progressCounts['Disampaikan'] / total * 100) + '%';
-    document.getElementById('diterimaBar').style.width = (progressCounts['Diterima'] / total * 100) + '%';
-    document.getElementById('ditolakBar').style.width = (progressCounts['Ditolak'] / total * 100) + '%';
-    document.getElementById('noResponseBar').style.width = (progressCounts['Tidak ada tanggapan'] / total * 100) + '%';
+    setW('totalBar', '100%');
+    setW('realBar', ((progressCounts['Direalisasikan'] || 0) / total * 100) + '%');
+    setW('disampaikanBar', ((progressCounts['Disampaikan'] || 0) / total * 100) + '%');
+    setW('ditolakBar', ((progressCounts['Ditolak'] || 0) / total * 100) + '%');
+    setW('noResponseBar', ((progressCounts['Tidak ada tanggapan'] || 0) / total * 100) + '%');
   }, 200);
 
   const chartOpts = {
