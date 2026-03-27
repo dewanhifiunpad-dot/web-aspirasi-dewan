@@ -913,13 +913,14 @@ const AIRTABLE_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
 // Variabel penampung global agar bisa dipakai oleh grafik dan filter UI
 let allData = []; 
-
+let activeFilters = { purpose: 'all', type: 'all', progress: 'all' };
+let visibleCount = 5;
 // === FUNGSI MENGAMBIL DATA (GET) UNTUK TIMELINE & CHART ===
 // Diubah namanya menjadi loadData agar cocok dengan inisialisasi di akhir script kamu
 async function loadData() {
     try {
         // Mengurutkan dari tanggal terbaru. Pastikan nama kolom di Airtable adalah "Tanggal"
-        const urlWithSort = `${AIRTABLE_URL}?sort[0][field]=Tanggal&sort[0][direction]=desc`;
+        const urlWithSort = `${AIRTABLE_URL}?sort[0][field]=Tanggal%20Pengiriml&sort[0][direction]=desc`;
         
         const response = await fetch(urlWithSort, {
             headers: { 'Authorization': `Bearer ${AIRTABLE_PAT}` }
