@@ -972,7 +972,7 @@ let visibleCount = 5;
 async function loadData() {
     try {
         // Mengurutkan dari tanggal terbaru. Pastikan nama kolom di Airtable adalah "Tanggal"
-        const urlWithSort = `${AIRTABLE_URL}?sort[0][field]=createdTime&sort[0][direction]=desc`;
+        const urlWithSort = `${AIRTABLE_URL}?sort[0][field]=Tanggal%20Pengirim&sort[0][direction]=desc`;
         
         const response = await fetch(urlWithSort, {
             headers: { 'Authorization': `Bearer ${AIRTABLE_PAT}` }
@@ -997,7 +997,6 @@ async function loadData() {
                 progress: f['Progres Aspirasi'] || 'Diterima',
                 anon: f['Tipe Identitas Pengirim'] === 'Anonim',
                 date: f['Tanggal Pengirim'] || '',
-                createdTime: record.createdTime || '', 
                 tanggapan: f['Tanggapan'] || ''
             };
         });
@@ -1020,7 +1019,7 @@ function getFilteredData() {
     if (activeFilters.type !== 'all' && d.type !== activeFilters.type) return false;
     if (activeFilters.progress !== 'all' && d.progress !== activeFilters.progress) return false;
     return true;
-  }).sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime));
+  }).sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
 function progressColor(p) {
@@ -1297,7 +1296,7 @@ async function submitForm() {
                     "Isi Aspirasi": text,
                     "Progres Aspirasi": "Diterima",
                     "Tipe Identitas Pengirim": isAnon ? "Anonim" : "Publik",
-                    "Tanggal Pengirim": new Date().toISOString().split('T')[0]
+                    "Tanggal Pengirim": new Date().toISOString()
                 }
             }
         ]
