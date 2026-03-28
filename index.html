@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HIFI Aspirasi — Suaramu, Gerakkan Kami</title>
+<title>Kawal HIFI — Dari Hati, Untuk HIFI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   :root {
@@ -153,9 +155,17 @@
     50% { opacity:.5; transform:scale(1.4); }
   }
   .hero h1 {
-    font-size: clamp(28px, 4vw, 46px);
-    font-weight: 800; line-height: 1.2;
-    letter-spacing: -1px; margin-bottom: 18px;
+  font-family: "Hedvig Letters Serif", serif;
+  font-size: 80px;
+  /* 400 (normal) matches the image better than the ultra-light 200 */
+  font-weight: 400; 
+  font-style: normal;
+  line-height: 1.05;
+  /* Replaced the two conflicting letter-spacing rules with one */
+  letter-spacing: -0.02em; 
+  margin-bottom: 18px;
+  /* The dark green/charcoal color of "Dari Hati, untuk" */
+  color: #1d3124;
   }
   .hero h1 em { font-style: italic; font-family: var(--font-serif); color: var(--accent); }
   .hero-desc { color: var(--text-muted); font-size: 15px; line-height: 1.75; margin-bottom: 32px; }
@@ -433,7 +443,7 @@
   /* ── FORM ── */
   #form-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .form-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
   .form-group { display: flex; flex-direction: column; gap: 12px; }
   .form-group.full { grid-column: 1 / -1; }
   label { font-size: 12.5px; font-weight: 700; color: var(--text); }
@@ -578,6 +588,16 @@
     .progress-steps { gap: 8px; }
     .progress-stat { min-width: calc(50% - 4px); flex: none; }
   }
+.nav-logo-img {
+  height: 40px; /* Sesuaikan ukuran tinggi logo sesuai kebutuhan top bar-mu */
+  width: auto; /* Agar proporsi gambar tidak peyang */
+}
+.nav-logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 18px; /* Sesuaikan dengan kebutuhan */
+  color: #333; 
+}
 </style>
 </head>
 <body>
@@ -589,10 +609,10 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <div class="nav-logo-badge">HF</div>
-      KawalHIFI
-    </a>
+    <a href="/" class="nav-logo">
+  <img src="LogoDewan.png" alt="Logo Kawal HIFI" class="nav-logo-img">
+  <span class="nav-logo-text">Kawal HIFI</span>
+</a>
     <ul class="nav-links">
       <li><a href="#timeline">Timeline</a></li>
       <li><a href="#statistik">Statistik</a></li>
@@ -616,7 +636,7 @@
       <div class="hero-eyebrow-dot"></div>
       Platform Aspirasi Warga HIFI
     </div>
-    <h1>Setiap Suara<br/><em>Berarti.</em></h1>
+    <h1>Dari Hati,<br/>Untuk<em>HIFI.</em></h1>
     <p class="hero-desc">
       Punya ide, pertanyaan, atau keluhan seputar HIFI, Prodi, Fakultas, maupun Departemen? Yuk, sampaikan di sini!
     </p>
@@ -952,7 +972,7 @@ let visibleCount = 5;
 async function loadData() {
     try {
         // Mengurutkan dari tanggal terbaru. Pastikan nama kolom di Airtable adalah "Tanggal"
-        const urlWithSort = `${AIRTABLE_URL}?sort[0][field]=Tanggal%20Pengirim&sort[0][direction]=desc`;
+        const urlWithSort = `${AIRTABLE_URL}?sort[0][field]=createdTime&sort[0][direction]=desc`;
         
         const response = await fetch(urlWithSort, {
             headers: { 'Authorization': `Bearer ${AIRTABLE_PAT}` }
@@ -977,6 +997,7 @@ async function loadData() {
                 progress: f['Progres Aspirasi'] || 'Diterima',
                 anon: f['Tipe Identitas Pengirim'] === 'Anonim',
                 date: f['Tanggal Pengirim'] || '',
+                createdTime: record.createdTime || '', 
                 tanggapan: f['Tanggapan'] || ''
             };
         });
@@ -999,7 +1020,7 @@ function getFilteredData() {
     if (activeFilters.type !== 'all' && d.type !== activeFilters.type) return false;
     if (activeFilters.progress !== 'all' && d.progress !== activeFilters.progress) return false;
     return true;
-  }).sort((a, b) => new Date(b.date) - new Date(a.date));
+  }).sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime));
 }
 
 function progressColor(p) {
