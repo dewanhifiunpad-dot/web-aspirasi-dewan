@@ -156,7 +156,7 @@
   }
   .hero h1 {
   font-family: "Hedvig Letters Serif", serif;
-  font-size: 80px;
+  font-size: clamp(32px, 6vw, 80px);;
   /* 400 (normal) matches the image better than the ultra-light 200 */
   font-weight: 400; 
   font-style: normal;
@@ -565,6 +565,7 @@
     .form-layout { grid-template-columns: 1fr; gap: 32px; }
   }
   @media (max-width: 768px) {
+    .hero h1 { letter-spacing: -0.01em; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
     .hero { grid-template-columns: 1fr; gap: 36px; padding: 40px 20px 48px; }
