@@ -338,88 +338,52 @@
   .empty-state { text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 14px; }
   .empty-state-icon { font-size: 36px; margin-bottom: 10px; }
 
-  /* ── TANGGAPAN MODAL ── */
-  .modal-overlay {
-  position: fixed; inset: 0; z-index: 999;
-  background: rgba(15,30,20,.55); backdrop-filter: blur(6px);
-  display: flex; align-items: center; justify-content: center;
-  padding: 20px; opacity: 0; pointer-events: none;
-  transition: opacity .25s;
+  /* ── TANGGAPAN MODAL CONTENT ── */
+#tanggapanModal.open #tanggapanModalInner { transform: scale(1); }
+
+.tanggapan-aspiration-box {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 14px;
 }
-.modal-overlay.open { opacity: 1; pointer-events: all; }
-.modal {
-  background: var(--surface); border-radius: 24px;
-  padding: 0; max-width: 400px; width: 100%;
-  text-align: center; box-shadow: 0 24px 64px rgba(0,0,0,.18), 0 0 0 1px rgba(45,106,79,.12);
-  transform: scale(.9) translateY(16px);
-  transition: transform .35s cubic-bezier(.34,1.56,.64,1), opacity .25s;
-  overflow: hidden; position: relative;
+.tanggapan-aspiration-label {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px;
 }
-.modal-overlay.open .modal { transform: scale(1) translateY(0); }
-.modal-confetti-canvas {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  pointer-events: none; z-index: 0; border-radius: 24px;
+.tanggapan-aspiration-text {
+  font-size: 13.5px; line-height: 1.65; color: var(--text);
 }
-.modal-top {
-  background: linear-gradient(160deg, #1a4731 0%, #2d6a4f 60%, #52b788 100%);
-  padding: 36px 32px 28px;
-  position: relative; overflow: hidden; z-index: 1;
+.tanggapan-divider {
+  height: 1px; background: var(--border); margin: 16px 0;
 }
-.modal-top::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(82,183,136,.35), transparent);
+.tanggapan-response-label {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  text-transform: uppercase; letter-spacing: .8px; margin-bottom: 12px;
 }
-.modal-rings {
-  position: absolute; top: -40px; right: -40px;
-  width: 140px; height: 140px; opacity: .12;
+.tanggapan-response-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent-light);
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
 }
-.modal-sparkle {
-  font-size: 52px; display: block; margin-bottom: 10px;
-  animation: sparkle-pop .6s cubic-bezier(.34,1.56,.64,1) both;
-  position: relative; z-index: 2;
+.tanggapan-response-text {
+  background: var(--accent-bg);
+  border: 1px solid #b7e4c7;
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-size: 13.5px; line-height: 1.7; color: #1f5c3a;
 }
-@keyframes sparkle-pop {
-  0% { transform: scale(0) rotate(-20deg); opacity: 0; }
-  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+.tanggapan-empty {
+  text-align: center; padding: 28px 16px;
 }
-.modal-top-title {
-  font-size: 24px; font-weight: 800; color: #fff;
-  letter-spacing: -.5px; margin-bottom: 6px;
-  position: relative; z-index: 2;
-  animation: slide-up .5s .1s both;
+.tanggapan-empty-icon { font-size: 32px; margin-bottom: 10px; }
+.tanggapan-empty-text {
+  font-size: 13px; color: var(--text-muted); line-height: 1.65;
 }
-.modal-top-sub {
-  font-size: 13.5px; color: rgba(255,255,255,.75);
-  line-height: 1.5; position: relative; z-index: 2;
-  animation: slide-up .5s .18s both;
-}
-@keyframes slide-up {
-  from { transform: translateY(12px); opacity: 0; }
-  to   { transform: translateY(0);    opacity: 1; }
-}
-.modal-body { padding: 24px 28px 28px; position: relative; z-index: 1; }
-.modal-steps {
-  display: flex; flex-direction: column; gap: 10px;
-  margin-bottom: 24px; text-align: left;
-  animation: slide-up .5s .26s both;
-}
-.modal-step {
-  display: flex; align-items: flex-start; gap: 10px;
-  background: var(--accent-bg); border-radius: 10px;
-  padding: 10px 14px; border: 1px solid #b7e4c7;
-}
-.modal-step-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-.modal-step-text { font-size: 13px; color: #1f5c3a; line-height: 1.5; }
-.modal-step-text strong { font-weight: 700; color: var(--accent); }
-.modal-close {
-  width: 100%; background: var(--accent); color: #fff; border: none;
-  padding: 13px 28px; border-radius: 12px;
-  font-family: var(--font); font-size: 14.5px; font-weight: 700;
-  cursor: pointer !important; transition: all .18s;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  animation: slide-up .5s .32s both;
-}
-.modal-close:hover { background: #245a42; transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
   /* ── CHARTS ── */
   .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
   .chart-card {
@@ -919,6 +883,41 @@
 </footer>
 
 <!-- TANGGAPAN MODAL -->
+  <!-- TANGGAPAN MODAL -->
+<div class="modal-overlay" id="tanggapanModal" onclick="handleTanggapanOverlayClick(event)">
+  <div style="
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    max-width: 520px; width: 100%;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    transform: scale(.95);
+    transition: transform .25s cubic-bezier(.34,1.56,.64,1);
+  " id="tanggapanModalInner">
+
+    <!-- Header -->
+    <div style="
+      background: linear-gradient(135deg, #1a4731, #2d6a4f);
+      padding: 22px 24px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+    ">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px;">Detail Aspirasi</div>
+        <div style="font-size:17px;font-weight:800;color:#fff;">Tanggapan Resmi</div>
+      </div>
+      <button class="tanggapan-close-btn" onclick="closeTanggapan()" style="
+        background: rgba(255,255,255,.15); border: none; color: #fff;
+        width: 34px; height: 34px; border-radius: 50%;
+        font-size: 16px; cursor: pointer; display: flex;
+        align-items: center; justify-content: center;
+        transition: background .15s;
+      ">✕</button>
+    </div>
+
+    <!-- Body -->
+    <div id="tanggapanContent" style="padding: 22px 24px 28px; max-height: 70vh; overflow-y: auto;"></div>
+  </div>
+</div>
 <!-- THANK YOU MODAL -->
 <div class="modal-overlay" id="thankYouModal">
   <div class="modal" id="thankYouModalInner">
