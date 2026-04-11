@@ -1179,17 +1179,18 @@ function typeColor(t) {
   return m[t] || 'badge-gray';
 }
 
-function typeColor(t) {
+function purposeColor(p) {
   const m = {
-    'Akademik': 'badge-blue',
-    'Fasilitas': 'badge-blue',
-    'Beasiswa': 'badge-amber',
-    'Administrasi': 'badge-gray',
-    'Pelayanan': 'badge-green'   // ← new
+    'Dewan': 'badge-red',
+    'HIFI': 'badge-green',
+    'Prodi': 'badge-blue',
+    'Fakultas': 'badge-amber',
+    'Departemen': 'badge-gray',
+    'Rektorat': 'badge-red'
   };
-  return m[t] || 'badge-gray';
+  return m[p] || 'badge-gray';
 }
-
+  
 function formatDate(d) {
   const dateObj = new Date(d);
   const tanggal = dateObj.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -1284,12 +1285,9 @@ function renderTimeline() {
   showBtn.style.display = filtered.length > visibleCount ? 'block' : 'none';
 }
 
-function setFilter(key, val, btn) {
+function setFilterSelect(key, val) {
   activeFilters[key] = val;
   visibleCount = 5;
-  const parentBar = btn.closest('.filter-bar');
-  parentBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
   renderTimeline();
 }
 function showMore() { visibleCount += 5; renderTimeline(); }
@@ -1503,12 +1501,10 @@ function resetForm() {
   selectAnon(false);
   visibleCount = 5;
   activeFilters = { purpose: 'all', type: 'all', progress: 'all' };
-  document.querySelectorAll('.filter-btn').forEach(b => {
-    b.classList.remove('active');
-    if (b.textContent.trim() === 'Semua') b.classList.add('active');
-  });
+  // Reset the filter selects back to "Semua"
+  document.querySelectorAll('.filter-select').forEach(sel => sel.value = 'all');
 }
-
+  
 function closeModal() { document.getElementById('thankYouModal').classList.remove('open'); }
 
 // ── TANGGAPAN MODAL ──
