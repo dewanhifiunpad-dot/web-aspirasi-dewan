@@ -667,6 +667,33 @@
   font-size: 18px; /* Sesuaikan dengan kebutuhan */
   color: #333; 
 }
+
+/* ── FILTER SELECT ── */
+.filter-select {
+  padding: 7px 36px 7px 14px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer !important;
+  transition: all .15s;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7167' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  appearance: none;
+  -webkit-appearance: none;
+  min-width: 160px;
+}
+.filter-select:hover,
+.filter-select:focus {
+  border-color: var(--accent-light);
+  color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(82,183,136,.12);
+}
 </style>
 </head>
 <body>
@@ -769,33 +796,41 @@
     </div>
 
     <div class="filter-bars-wrap">
-      <div class="filter-bar">
-        <span class="filter-label">Tujuan:</span>
-        <button class="filter-btn active" onclick="setFilter('purpose','all',this)">Semua</button>
-        <button class="filter-btn" onclick="setFilter('purpose','Dewan',this)">Dewan</button>
-        <button class="filter-btn" onclick="setFilter('purpose','HIFI',this)">HIFI</button>
-        <button class="filter-btn" onclick="setFilter('purpose','Prodi',this)">Prodi</button>
-        <button class="filter-btn" onclick="setFilter('purpose','Fakultas',this)">Fakultas</button>
-        <button class="filter-btn" onclick="setFilter('purpose','Departemen',this)">Departemen</button>
-      </div>
-      <div class="filter-bar">
-        <span class="filter-label">Tipe:</span>
-        <button class="filter-btn active" onclick="setFilter('type','all',this)">Semua</button>
-        <button class="filter-btn" onclick="setFilter('type','Administrasi',this)">Administrasi</button>
-        <button class="filter-btn" onclick="setFilter('type','Akademik',this)">Akademik</button>
-        <button class="filter-btn" onclick="setFilter('type','Beasiswa',this)">Beasiswa</button>
-        <button class="filter-btn" onclick="setFilter('type','Fasilitas',this)">Fasilitas</button>
-      </div>
-      <div class="filter-bar">
-        <span class="filter-label">Progress:</span>
-        <button class="filter-btn active" onclick="setFilter('progress','all',this)">Semua</button>
-        <button class="filter-btn" onclick="setFilter('progress','Diterima',this)">Diterima</button>
-        <button class="filter-btn" onclick="setFilter('progress','Disampaikan',this)">Disampaikan</button>
-        <button class="filter-btn" onclick="setFilter('progress','Direalisasikan',this)">Direalisasikan</button>
-        <button class="filter-btn" onclick="setFilter('progress','Ditolak',this)">Ditolak</button>
-        <button class="filter-btn" onclick="setFilter('progress','Tidak ada tanggapan',this)">Tidak ada tanggapan</button>
-      </div>
-    </div>
+  <div class="filter-bar">
+    <span class="filter-label">Tujuan:</span>
+    <select class="filter-select" onchange="setFilterSelect('purpose', this.value)">
+      <option value="all">Semua</option>
+      <option value="Dewan">Dewan</option>
+      <option value="HIFI">HIFI</option>
+      <option value="Prodi">Prodi</option>
+      <option value="Fakultas">Fakultas</option>
+      <option value="Departemen">Departemen</option>
+      <option value="Rektorat">Rektorat</option>
+    </select>
+  </div>
+  <div class="filter-bar">
+    <span class="filter-label">Tipe:</span>
+    <select class="filter-select" onchange="setFilterSelect('type', this.value)">
+      <option value="all">Semua</option>
+      <option value="Administrasi">Administrasi</option>
+      <option value="Akademik">Akademik</option>
+      <option value="Beasiswa">Beasiswa</option>
+      <option value="Fasilitas">Fasilitas</option>
+      <option value="Pelayanan">Pelayanan</option>
+    </select>
+  </div>
+  <div class="filter-bar">
+    <span class="filter-label">Progress:</span>
+    <select class="filter-select" onchange="setFilterSelect('progress', this.value)">
+      <option value="all">Semua</option>
+      <option value="Diterima">Diterima</option>
+      <option value="Disampaikan">Disampaikan</option>
+      <option value="Direalisasikan">Direalisasikan</option>
+      <option value="Ditolak">Ditolak</option>
+      <option value="Tidak ada tanggapan">Tidak ada tanggapan</option>
+    </select>
+  </div>
+</div>
 
     <div class="timeline" id="timeline-list">
       <div class="loading-state">
@@ -893,7 +928,7 @@
             <select id="f-purpose">
               <option value="">Pilih tujuan...</option>
               <option>Dewan</option><option>HIFI</option><option>Prodi</option>
-              <option>Fakultas</option><option>Departemen</option>
+              <option>Fakultas</option><option>Departemen</option><option>Rektorat</option>
               <option value="other">Lainnya (isi manual)</option>
             </select>
             <div class="custom-other" id="purpose-other-wrap">
@@ -905,7 +940,7 @@
             <select id="f-type">
               <option value="">Pilih tipe...</option>
               <option>Administrasi</option><option>Akademik</option>
-              <option>Beasiswa</option><option>Fasilitas</option>
+              <option>Beasiswa</option><option>Fasilitas</option><option>Pelayanan</option>
               <option value="other">Lainnya (isi manual)</option>
             </select>
             <div class="custom-other" id="type-other-wrap">
@@ -1134,13 +1169,27 @@ function progressColor(p) {
   return { dot: 'dot-gray', badge: 'badge-gray' };
 }
 function typeColor(t) {
-  const m = { 'Akademik': 'badge-blue', 'Fasilitas': 'badge-blue', 'Beasiswa': 'badge-amber', 'Administrasi': 'badge-gray' };
+  const m = {
+    'Akademik': 'badge-blue',
+    'Fasilitas': 'badge-blue',
+    'Beasiswa': 'badge-amber',
+    'Administrasi': 'badge-gray',
+    'Pelayanan': 'badge-green'   // ← new
+  };
   return m[t] || 'badge-gray';
 }
-function purposeColor(p) {
-  const m = { 'Dewan':'badge-red','HIFI': 'badge-green', 'Prodi': 'badge-blue', 'Fakultas': 'badge-amber', 'Departemen': 'badge-gray' };
-  return m[p] || 'badge-gray';
+
+function typeColor(t) {
+  const m = {
+    'Akademik': 'badge-blue',
+    'Fasilitas': 'badge-blue',
+    'Beasiswa': 'badge-amber',
+    'Administrasi': 'badge-gray',
+    'Pelayanan': 'badge-green'   // ← new
+  };
+  return m[t] || 'badge-gray';
 }
+
 function formatDate(d) {
   const dateObj = new Date(d);
   const tanggal = dateObj.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -1249,8 +1298,8 @@ function showMore() { visibleCount += 5; renderTimeline(); }
 let charts = {};
 function initCharts() {
   const data = allData;
-  const purposeCounts = { Dewan: 0, HIFI: 0, Prodi: 0, Fakultas: 0, Departemen: 0 };
-  const typeCounts = { Administrasi: 0, Akademik: 0, Beasiswa: 0, Fasilitas: 0 };
+  const purposeCounts = { Dewan: 0, HIFI: 0, Prodi: 0, Fakultas: 0, Departemen: 0, Rektorat: 0 };
+  const typeCounts    = { Administrasi: 0, Akademik: 0, Beasiswa: 0, Fasilitas: 0, Pelayanan: 0 };
   const progressCounts = { 'Diterima':0,'Disampaikan': 0, 'Direalisasikan': 0, 'Ditolak': 0, 'Tidak ada tanggapan': 0 };
   const angkatanCounts = { 2020: 0, 2021: 0, 2022: 0, 2023: 0, 2024: 0, 2025: 0 };
 
