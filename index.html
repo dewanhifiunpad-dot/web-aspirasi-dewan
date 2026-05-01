@@ -48,7 +48,6 @@
     min-height: 100vh;
   }
 
-  /* ── BACKGROUND TEXTURE ── */
   body::before {
     content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background-image:
@@ -57,7 +56,7 @@
       url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Ccircle cx='30' cy='30' r='1' fill='%232d6a4f' fill-opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
   }
 
-  /* ── CUSTOM CURSOR (desktop only) ── */
+  /* ── CUSTOM CURSOR ── */
   @media (hover: hover) and (pointer: fine) {
     * { cursor: none !important; }
     #cursor-dot {
@@ -96,15 +95,9 @@
     font-weight: 800; font-size: 17px; color: var(--text); text-decoration: none;
     flex-shrink: 0;
   }
-  .nav-logo-badge {
-    width: 34px; height: 34px; border-radius: 9px;
-    background: var(--accent); color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 800; letter-spacing: -0.5px; flex-shrink: 0;
-  }
-  .nav-links {
-    display: flex; align-items: center; gap: 4px; list-style: none;
-  }
+  .nav-logo-img { height: 40px; width: auto; }
+  .nav-logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px; color: #333; }
+  .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
   .nav-links a {
     display: block; padding: 6px 14px; border-radius: 8px;
     color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500;
@@ -113,25 +106,15 @@
   .nav-links a:hover { background: var(--surface2); color: var(--text); }
   .nav-cta { background: var(--accent) !important; color: #fff !important; font-weight: 600 !important; }
   .nav-cta:hover { background: #245a42 !important; }
-  .hamburger {
-    display: none; flex-direction: column; gap: 5px;
-    cursor: pointer !important; padding: 4px;
-  }
-  .hamburger span {
-    display: block; width: 22px; height: 2px;
-    background: var(--text); border-radius: 2px; transition: all .2s;
-  }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer !important; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all .2s; }
   .mobile-nav {
     display: none; flex-direction: column; gap: 4px;
     background: var(--surface); border-bottom: 1px solid var(--border);
     padding: 12px 24px;
   }
   .mobile-nav.open { display: flex; }
-  .mobile-nav a {
-    padding: 10px 14px; border-radius: 8px;
-    color: var(--text-muted); text-decoration: none;
-    font-size: 14px; font-weight: 500; transition: all .15s;
-  }
+  .mobile-nav a { padding: 10px 14px; border-radius: 8px; color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: all .15s; }
   .mobile-nav a:hover { background: var(--surface2); color: var(--text); }
 
   /* ── HERO ── */
@@ -146,26 +129,14 @@
     padding: 5px 12px 5px 8px; border-radius: 100px;
     font-size: 12.5px; font-weight: 700; letter-spacing: .3px; margin-bottom: 20px;
   }
-  .hero-eyebrow-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--accent-light); animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%,100% { opacity:1; transform:scale(1); }
-    50% { opacity:.5; transform:scale(1.4); }
-  }
+  .hero-eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-light); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.5; transform:scale(1.4); } }
   .hero h1 {
-  font-family: "Hedvig Letters Serif", serif;
-  font-size: clamp(32px, 6vw, 80px);;
-  /* 400 (normal) matches the image better than the ultra-light 200 */
-  font-weight: 400; 
-  font-style: normal;
-  line-height: 1.05;
-  /* Replaced the two conflicting letter-spacing rules with one */
-  letter-spacing: -0.02em; 
-  margin-bottom: 18px;
-  /* The dark green/charcoal color of "Dari Hati, untuk" */
-  color: #1d3124;
+    font-family: "Hedvig Letters Serif", serif;
+    font-size: clamp(32px, 6vw, 80px);
+    font-weight: 400; font-style: normal;
+    line-height: 1.05; letter-spacing: -0.02em;
+    margin-bottom: 18px; color: #1d3124;
   }
   .hero h1 em { font-style: italic; font-family: var(--font-serif); color: var(--accent); }
   .hero-desc { color: var(--text-muted); font-size: 15px; line-height: 1.75; margin-bottom: 32px; }
@@ -174,8 +145,7 @@
     display: inline-flex; align-items: center; gap: 8px;
     padding: 11px 22px; border-radius: 10px;
     font-family: var(--font); font-size: 14px; font-weight: 600;
-    cursor: pointer !important; border: none; transition: all .15s;
-    text-decoration: none;
+    cursor: pointer !important; border: none; transition: all .15s; text-decoration: none;
   }
   .btn-primary { background: var(--accent); color: #fff; }
   .btn-primary:hover { background: #245a42; transform: translateY(-1px); box-shadow: var(--shadow-md); }
@@ -185,8 +155,7 @@
   /* ── HERO STATS ── */
   .hero-stats {
     display: grid; grid-template-columns: repeat(5, 1fr);
-    gap: 8px; margin-top: 28px; padding-top: 24px;
-    border-top: 1px solid var(--border);
+    gap: 8px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border);
   }
   .hero-stat-item {
     background: var(--surface); border: 1px solid var(--border);
@@ -217,41 +186,24 @@
   .mini-card {
     background: var(--bg); border-radius: var(--radius-sm);
     border: 1px solid var(--border); padding: 14px 16px;
-    margin-bottom: 10px; display: flex; align-items: flex-start; gap: 12px;
-    transition: all .2s;
+    margin-bottom: 10px; display: flex; align-items: flex-start; gap: 12px; transition: all .2s;
   }
   .mini-card:last-child { margin-bottom: 0; }
   .mini-card:hover { box-shadow: var(--shadow-sm); transform: translateX(2px); }
-  .mini-avatar {
-    width: 36px; height: 36px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: 700; flex-shrink: 0;
-  }
+  .mini-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
   .mini-card-body { flex: 1; min-width: 0; }
   .mini-card-name { font-size: 12.5px; font-weight: 700; margin-bottom: 2px; }
   .mini-card-text { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
-  .mini-badge {
-    display: inline-block; padding: 2px 8px; border-radius: 100px;
-    font-size: 10.5px; font-weight: 700; margin-top: 5px;
-  }
+  .mini-badge { display: inline-block; padding: 2px 8px; border-radius: 100px; font-size: 10.5px; font-weight: 700; margin-top: 5px; }
   .badge-green { background: var(--accent-bg); color: var(--accent); }
   .badge-amber { background: var(--amber-bg); color: #a06a10; }
   .badge-red { background: var(--red-bg); color: var(--red); }
   .badge-blue { background: var(--blue-bg); color: var(--blue); }
   .badge-gray { background: var(--surface2); color: var(--text-muted); }
 
-  /* ── LOADING STATE ── */
-  .loading-state {
-    text-align: center; padding: 48px 24px;
-    color: var(--text-muted); font-size: 14px;
-  }
-  .loading-spinner {
-    width: 32px; height: 32px; border-radius: 50%;
-    border: 3px solid var(--border);
-    border-top-color: var(--accent);
-    animation: spin 0.8s linear infinite;
-    margin: 0 auto 14px;
-  }
+  /* ── LOADING ── */
+  .loading-state { text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 14px; }
+  .loading-spinner { width: 32px; height: 32px; border-radius: 50%; border: 3px solid var(--border); border-top-color: var(--accent); animation: spin 0.8s linear infinite; margin: 0 auto 14px; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
   /* ── SECTION ── */
@@ -263,69 +215,46 @@
   .section-sub { color: var(--text-muted); margin-top: 6px; font-size: 14.5px; }
 
   /* ── FILTER BAR ── */
-  .filter-bar {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    margin-bottom: 10px; align-items: center;
-  }
+  .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
   .filter-label { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-right: 4px; flex-shrink: 0; }
-  .filter-btn {
-    padding: 6px 14px; border-radius: 8px; border: 1.5px solid var(--border);
-    background: var(--surface); color: var(--text-muted);
-    font-family: var(--font); font-size: 13px; font-weight: 600;
-    cursor: pointer !important; transition: all .15s;
-  }
-  .filter-btn:hover { border-color: var(--accent-light); color: var(--accent); }
-  .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
   .filter-bars-wrap { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+  .filter-select {
+    padding: 7px 36px 7px 14px; border-radius: 8px; border: 1.5px solid var(--border);
+    background: var(--surface); color: var(--text); font-family: var(--font);
+    font-size: 13px; font-weight: 600; cursor: pointer !important; transition: all .15s;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7167' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 12px center;
+    appearance: none; -webkit-appearance: none; min-width: 160px;
+  }
+  .filter-select:hover, .filter-select:focus { border-color: var(--accent-light); color: var(--accent); outline: none; box-shadow: 0 0 0 3px rgba(82,183,136,.12); }
 
   /* ── TIMELINE ── */
   .timeline { position: relative; padding-left: 32px; }
-  .timeline::before {
-    content: ''; position: absolute; left: 10px; top: 0; bottom: 0;
-    width: 2px; background: var(--border); border-radius: 2px;
-  }
+  .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: var(--border); border-radius: 2px; }
   .timeline-item { position: relative; margin-bottom: 20px; }
-  .timeline-dot {
-    position: absolute; left: -27px; top: 18px;
-    width: 12px; height: 12px; border-radius: 50%;
-    border: 2.5px solid var(--surface); box-shadow: 0 0 0 2px var(--border);
-    background: var(--accent-light);
-  }
+  .timeline-dot { position: absolute; left: -27px; top: 18px; width: 12px; height: 12px; border-radius: 50%; border: 2.5px solid var(--surface); box-shadow: 0 0 0 2px var(--border); background: var(--accent-light); }
   .timeline-dot.dot-amber { background: var(--amber); box-shadow: 0 0 0 2px var(--amber-bg); }
   .timeline-dot.dot-red { background: var(--red); box-shadow: 0 0 0 2px var(--red-bg); }
   .timeline-dot.dot-gray { background: #ccc; box-shadow: 0 0 0 2px var(--surface2); }
-  .tl-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 18px 20px;
-    box-shadow: var(--shadow-sm); transition: all .2s;
-  }
+  .tl-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow-sm); transition: all .2s; }
   .tl-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
-  .tl-card-header {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    gap: 12px; margin-bottom: 8px; flex-wrap: wrap;
-  }
+  .tl-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
   .tl-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .tl-name { font-size: 13.5px; font-weight: 700; }
   .tl-date { font-size: 11.5px; color: var(--text-muted); white-space: nowrap; }
   .tl-text { font-size: 13.5px; line-height: 1.6; color: var(--text); margin-bottom: 14px; }
   .tl-tags { display: flex; gap: 6px; flex-wrap: wrap; }
   .tl-tag { padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: .2px; }
-  .tl-footer {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 12px; flex-wrap: wrap;
-  }
+  .tl-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   .tl-footer .tl-tags { flex: 1; min-width: 0; }
   .tl-tanggapan-btn {
     display: inline-flex; align-items: center; gap: 5px;
     padding: 5px 13px; border-radius: 8px; flex-shrink: 0;
-    border: 1.5px solid var(--border);
-    background: var(--surface); color: var(--text-muted);
+    border: 1.5px solid var(--border); background: var(--surface); color: var(--text-muted);
     font-family: var(--font); font-size: 12px; font-weight: 600;
     cursor: pointer !important; transition: all .15s; white-space: nowrap;
   }
   .tl-tanggapan-btn:hover { border-color: var(--accent-light); color: var(--accent); background: var(--accent-bg); }
-
-  /* ── SHOW MORE ── */
   .show-more-btn {
     width: 100%; padding: 13px; background: var(--surface);
     border: 1.5px dashed var(--border); border-radius: var(--radius);
@@ -333,74 +262,29 @@
     cursor: pointer !important; margin-top: 8px; transition: all .15s;
   }
   .show-more-btn:hover { border-color: var(--accent-light); color: var(--accent); background: var(--accent-bg); }
-
-  /* ── EMPTY STATE ── */
   .empty-state { text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 14px; }
   .empty-state-icon { font-size: 36px; margin-bottom: 10px; }
 
   /* ── TANGGAPAN MODAL CONTENT ── */
-#tanggapanModal.open #tanggapanModalInner { transform: scale(1); }
-
-.tanggapan-aspiration-box {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 14px 16px;
-  margin-bottom: 14px;
-}
-.tanggapan-aspiration-label {
-  font-size: 10.5px; font-weight: 700; letter-spacing: 1px;
-  text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px;
-}
-.tanggapan-aspiration-text {
-  font-size: 13.5px; line-height: 1.65; color: var(--text);
-}
-.tanggapan-divider {
-  height: 1px; background: var(--border); margin: 16px 0;
-}
-.tanggapan-response-label {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 12px; font-weight: 700; color: var(--accent);
-  text-transform: uppercase; letter-spacing: .8px; margin-bottom: 12px;
-}
-.tanggapan-response-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent-light);
-  animation: pulse 2s infinite;
-  flex-shrink: 0;
-}
-.tanggapan-response-text {
-  background: var(--accent-bg);
-  border: 1px solid #b7e4c7;
-  border-radius: var(--radius-sm);
-  padding: 14px 16px;
-  font-size: 13.5px; line-height: 1.7; color: #1f5c3a;
-}
-.tanggapan-empty {
-  text-align: center; padding: 28px 16px;
-}
-.tanggapan-empty-icon { font-size: 32px; margin-bottom: 10px; }
-.tanggapan-empty-text {
-  font-size: 13px; color: var(--text-muted); line-height: 1.65;
-}
+  .tanggapan-aspiration-box { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; margin-bottom: 14px; }
+  .tanggapan-aspiration-label { font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+  .tanggapan-aspiration-text { font-size: 13.5px; line-height: 1.65; color: var(--text); }
+  .tanggapan-divider { height: 1px; background: var(--border); margin: 16px 0; }
+  .tanggapan-response-label { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .8px; margin-bottom: 12px; }
+  .tanggapan-response-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-light); animation: pulse 2s infinite; flex-shrink: 0; }
+  .tanggapan-response-text { background: var(--accent-bg); border: 1px solid #b7e4c7; border-radius: var(--radius-sm); padding: 14px 16px; font-size: 13.5px; line-height: 1.7; color: #1f5c3a; }
+  .tanggapan-empty { text-align: center; padding: 28px 16px; }
+  .tanggapan-empty-icon { font-size: 32px; margin-bottom: 10px; }
+  .tanggapan-empty-text { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
 
   /* ── CHARTS ── */
   .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-  .chart-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-sm);
-  }
+  .chart-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-sm); }
   .chart-card-title { font-size: 13.5px; font-weight: 700; margin-bottom: 4px; }
   .chart-card-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 16px; }
   .chart-wrap { position: relative; height: 200px; }
-
-  /* ── PROGRESS STATS ── */
   .progress-steps { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
-  .progress-stat {
-    flex: 1; min-width: 110px;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 14px 16px; box-shadow: var(--shadow-sm);
-  }
+  .progress-stat { flex: 1; min-width: 110px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; box-shadow: var(--shadow-sm); }
   .progress-stat-num { font-size: 24px; font-weight: 800; color: var(--accent); }
   .progress-stat-label { font-size: 12px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
 
@@ -413,35 +297,19 @@
   label { font-size: 12.5px; font-weight: 700; color: var(--text); }
   label span { font-weight: 400; color: var(--text-muted); }
   input, select, textarea {
-    width: 100%; padding: 11px 14px;
-    border: 1.5px solid var(--border); border-radius: var(--radius-sm);
-    background: var(--bg); color: var(--text);
-    font-family: var(--font); font-size: 14px;
-    transition: all .15s; outline: none;
-    appearance: none; -webkit-appearance: none;
+    width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+    background: var(--bg); color: var(--text); font-family: var(--font); font-size: 14px;
+    transition: all .15s; outline: none; appearance: none; -webkit-appearance: none;
   }
-  input:focus, select:focus, textarea:focus {
-    border-color: var(--accent-light); background: #fff;
-    box-shadow: 0 0 0 3px rgba(82,183,136,.15);
-  }
+  input:focus, select:focus, textarea:focus { border-color: var(--accent-light); background: #fff; box-shadow: 0 0 0 3px rgba(82,183,136,.15); }
   textarea { resize: vertical; min-height: 110px; }
   select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7167' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px;
   }
-  .form-warning {
-    display: flex; align-items: flex-start; gap: 8px;
-    background: var(--amber-bg); border: 1px solid #f5d48a;
-    border-radius: var(--radius-sm); padding: 10px 14px;
-    font-size: 12.5px; color: #7a4f10; line-height: 1.5; margin-top: 2px;
-  }
+  .form-warning { display: flex; align-items: flex-start; gap: 8px; background: var(--amber-bg); border: 1px solid #f5d48a; border-radius: var(--radius-sm); padding: 10px 14px; font-size: 12.5px; color: #7a4f10; line-height: 1.5; margin-top: 2px; }
   .form-warning-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
-  .anon-toggle {
-    display: flex; align-items: center; gap: 12px;
-    padding: 14px 16px; border-radius: var(--radius-sm);
-    border: 1.5px solid var(--border); background: var(--bg);
-    cursor: pointer !important; transition: all .15s;
-  }
+  .anon-toggle { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--radius-sm); border: 1.5px solid var(--border); background: var(--bg); cursor: pointer !important; transition: all .15s; }
   .anon-toggle:hover { border-color: var(--accent-light); }
   .anon-toggle.selected { border-color: var(--accent); background: var(--accent-bg); }
   .toggle-icon { font-size: 20px; }
@@ -452,8 +320,7 @@
   .custom-other.visible { display: block; }
   .submit-btn {
     width: 100%; padding: 15px; border: none; border-radius: var(--radius-sm);
-    background: var(--accent); color: #fff;
-    font-family: var(--font); font-size: 15px; font-weight: 700;
+    background: var(--accent); color: #fff; font-family: var(--font); font-size: 15px; font-weight: 700;
     cursor: pointer !important; transition: all .2s; margin-top: 8px;
     display: flex; align-items: center; justify-content: center; gap: 8px;
   }
@@ -462,176 +329,179 @@
   .submit-btn:disabled { background: #a0bfb0; cursor: not-allowed !important; transform: none; box-shadow: none; }
 
   /* ── COMING SOON ── */
-  .coming-soon-banner {
-    background: linear-gradient(135deg, #1a1714 0%, #2d4a3e 100%);
-    color: #fff; border-radius: var(--radius-lg); padding: 48px 40px;
-    text-align: center; position: relative; overflow: hidden;
-  }
-  .cs-noise {
-    position: absolute; inset: 0; opacity: .04;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  .cs-chip {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(82,183,136,.2); color: var(--accent-light);
-    padding: 5px 14px; border-radius: 100px;
-    font-size: 12px; font-weight: 700; letter-spacing: .5px;
-    margin-bottom: 18px; border: 1px solid rgba(82,183,136,.3);
-  }
+  .coming-soon-banner { background: linear-gradient(135deg, #1a1714 0%, #2d4a3e 100%); color: #fff; border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; position: relative; overflow: hidden; }
+  .cs-noise { position: absolute; inset: 0; opacity: .04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .cs-chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(82,183,136,.2); color: var(--accent-light); padding: 5px 14px; border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: .5px; margin-bottom: 18px; border: 1px solid rgba(82,183,136,.3); }
   .cs-title { font-size: clamp(22px, 3vw, 36px); font-weight: 800; letter-spacing: -.5px; margin-bottom: 12px; }
   .cs-title em { font-family: var(--font-serif); font-style: italic; color: var(--accent-light); }
   .cs-desc { color: rgba(255,255,255,.6); max-width: 540px; margin: 0 auto 28px; font-size: 15px; }
   .cs-features { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .cs-feature {
-    background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
-    border-radius: var(--radius-sm); padding: 10px 16px; font-size: 13px; font-weight: 600;
-  }
+  .cs-feature { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-sm); padding: 10px 16px; font-size: 13px; font-weight: 600; }
 
   /* ── FOOTER ── */
-  footer {
-    text-align: center; padding: 28px 24px;
-    border-top: 1px solid var(--border);
-    font-size: 13px; color: var(--text-muted);
-  }
+  footer { text-align: center; padding: 28px 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-muted); }
   footer strong { color: var(--accent); }
 
-  /* ── MODAL ── */
+  /* ── GENERIC MODAL OVERLAY ── */
   .modal-overlay {
     position: fixed; inset: 0; z-index: 999;
     background: rgba(0,0,0,.45); backdrop-filter: blur(4px);
     display: flex; align-items: center; justify-content: center;
-    padding: 24px; opacity: 0; pointer-events: none;
-    transition: opacity .2s;
+    padding: 24px; opacity: 0; pointer-events: none; transition: opacity .2s;
   }
   .modal-overlay.open { opacity: 1; pointer-events: all; }
-  .modal {
-    background: var(--surface); border-radius: var(--radius-lg);
-    padding: 40px 32px; max-width: 420px; width: 100%;
-    text-align: center; box-shadow: var(--shadow-lg);
-    transform: scale(.95); transition: transform .2s;
+
+  /* ── THANK YOU MODAL ── */
+  #thankYouModalInner {
+    position: relative; overflow: hidden; border-radius: var(--radius-lg);
+    max-width: 440px; width: 100%; box-shadow: var(--shadow-lg);
+    transform: scale(.95); transition: transform .25s cubic-bezier(.34,1.56,.64,1);
   }
-  .modal-overlay.open .modal { transform: scale(1); }
-  .modal-icon { font-size: 52px; margin-bottom: 14px; }
-  .modal-title { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
-  .modal-desc { color: var(--text-muted); font-size: 14px; line-height: 1.65; margin-bottom: 24px; }
-  .modal-close {
-    background: var(--accent); color: #fff; border: none;
-    padding: 12px 28px; border-radius: 10px;
-    font-family: var(--font); font-size: 14px; font-weight: 700;
-    cursor: pointer !important; transition: all .15s;
-  }
+  .modal-overlay.open #thankYouModalInner { transform: scale(1); }
+  .modal-confetti-canvas { position: absolute; inset: 0; pointer-events: none; z-index: 10; border-radius: var(--radius-lg); }
+  .modal-top { background: linear-gradient(135deg, #1a4731, #2d6a4f); padding: 36px 28px 28px; text-align: center; position: relative; overflow: hidden; }
+  .modal-rings { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .08; pointer-events: none; }
+  .modal-sparkle { font-size: 42px; display: block; margin-bottom: 12px; position: relative; z-index: 1; }
+  .modal-top-title { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 6px; position: relative; z-index: 1; }
+  .modal-top-sub { font-size: 13.5px; color: rgba(255,255,255,.75); line-height: 1.6; position: relative; z-index: 1; }
+  .modal-body { padding: 24px 28px 28px; background: var(--surface); }
+  .modal-steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+  .modal-step { display: flex; align-items: flex-start; gap: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 14px; }
+  .modal-step-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .modal-step-text { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+  .modal-step-text strong { color: var(--text); }
+  .modal-close { width: 100%; background: var(--accent); color: #fff; border: none; padding: 13px 28px; border-radius: 10px; font-family: var(--font); font-size: 14px; font-weight: 700; cursor: pointer !important; transition: all .15s; }
   .modal-close:hover { background: #245a42; }
 
-  .divider { height: 1px; background: var(--border); margin: 0; }
-/* ── THANK YOU MODAL ── */
-#thankYouModalInner {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  max-width: 440px;
-  width: 100%;
-  box-shadow: var(--shadow-lg);
-  transform: scale(.95);
-  transition: transform .25s cubic-bezier(.34,1.56,.64,1);
-}
-.modal-overlay.open #thankYouModalInner { transform: scale(1); }
-
-.modal-confetti-canvas {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 10;
-  border-radius: var(--radius-lg);
-}
-
-.modal-top {
-  background: linear-gradient(135deg, #1a4731, #2d6a4f);
-  padding: 36px 28px 28px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.modal-rings {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: .08;
-  pointer-events: none;
-}
-.modal-sparkle {
-  font-size: 42px;
-  display: block;
-  margin-bottom: 12px;
-  position: relative;
-  z-index: 1;
-}
-.modal-top-title {
-  font-size: 22px;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 6px;
-  position: relative;
-  z-index: 1;
-}
-.modal-top-sub {
-  font-size: 13.5px;
-  color: rgba(255,255,255,.75);
-  line-height: 1.6;
-  position: relative;
-  z-index: 1;
-}
-
-.modal-body {
-  padding: 24px 28px 28px;
-  background: var(--surface);
-}
-.modal-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-.modal-step {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 12px 14px;
-}
-.modal-step-icon {
-  font-size: 18px;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.modal-step-text {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.55;
-}
-.modal-step-text strong {
-  color: var(--text);
-}
-.modal-close {
-  width: 100%;
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  padding: 13px 28px;
-  border-radius: 10px;
-  font-family: var(--font);
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer !important;
-  transition: all .15s;
-}
-.modal-close:hover { background: #245a42; }
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .form-layout { grid-template-columns: 1fr; gap: 32px; }
+  /* ══════════════════════════════════════════
+     MODE SELECTION MODAL (Anonim / Publik)
+     ══════════════════════════════════════════ */
+  #modeModal {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,0.52);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 20px;
+    animation: overlayFadeIn .2s ease;
   }
+  #modeModal.open { display: flex; }
+  @keyframes overlayFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .mode-modal-box {
+    background: var(--surface);
+    border-radius: 20px;
+    width: 100%; max-width: 440px;
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.28);
+    animation: modalSlideIn .28s cubic-bezier(.34,1.3,.64,1);
+  }
+  @keyframes modalSlideIn { from { opacity: 0; transform: scale(.92) translateY(14px); } to { opacity: 1; transform: none; } }
+
+  .mode-modal-header {
+    padding: 22px 22px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .mode-modal-title {
+    font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 5px;
+  }
+  .mode-modal-sub {
+    font-size: 13px; color: var(--text-muted); line-height: 1.6;
+  }
+
+  .mode-modal-options {
+    padding: 16px 22px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .mode-option-card {
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 44px 14px 14px;
+    cursor: pointer !important;
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--bg);
+    transition: border-color .18s, background .18s;
+    position: relative;
+    user-select: none;
+  }
+  .mode-option-card:hover { background: var(--surface2); border-color: #c0b8a8; }
+  .mode-option-card.selected { border-color: var(--accent); background: var(--accent-bg); }
+
+  .mode-option-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .mode-option-icon.anon { background: #ede9fe; }
+  .mode-option-icon.pub  { background: var(--accent-bg); }
+
+  .mode-option-body { flex: 1; }
+  .mode-option-title {
+    font-size: 13.5px; font-weight: 700; color: var(--text);
+    margin-bottom: 3px; display: flex; align-items: center; gap: 7px;
+  }
+  .mode-option-badge {
+    font-size: 10px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: 2px 8px; border-radius: 99px;
+  }
+  .mode-option-badge.anon { background: #ede9fe; color: #5b21b6; }
+  .mode-option-badge.pub  { background: var(--accent-bg); color: var(--accent); }
+  .mode-option-desc { font-size: 12px; color: var(--text-muted); line-height: 1.55; }
+
+  /* radio indicator */
+  .mode-radio {
+    position: absolute; top: 50%; right: 14px; transform: translateY(-50%);
+    width: 18px; height: 18px; border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color .18s, background .18s;
+    flex-shrink: 0;
+  }
+  .mode-option-card.selected .mode-radio { border-color: var(--accent); background: var(--accent); }
+  .mode-radio-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #fff; opacity: 0; transition: opacity .18s;
+  }
+  .mode-option-card.selected .mode-radio-dot { opacity: 1; }
+
+  /* warning note inside modal */
+  .mode-modal-warning {
+    margin: 0 22px 14px;
+    background: var(--amber-bg); border: 1px solid #f5d48a;
+    border-radius: var(--radius-sm); padding: 10px 14px;
+    display: flex; gap: 8px; align-items: flex-start;
+    font-size: 12px; color: #7a4f10; line-height: 1.6;
+  }
+  .mode-modal-warning-icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+
+  /* footer buttons */
+  .mode-modal-footer {
+    padding: 0 22px 20px;
+    display: flex; gap: 8px;
+  }
+  .mode-modal-cancel {
+    flex: 1; padding: 11px; border-radius: var(--radius-sm);
+    border: 1.5px solid var(--border); background: transparent;
+    font-family: var(--font); font-size: 13px; font-weight: 600;
+    color: var(--text-muted); cursor: pointer !important;
+    transition: background .15s, border-color .15s;
+  }
+  .mode-modal-cancel:hover { background: var(--surface2); border-color: #c0b8a8; }
+  .mode-modal-submit {
+    flex: 2; padding: 11px; border-radius: var(--radius-sm);
+    border: none; background: var(--accent); color: #fff;
+    font-family: var(--font); font-size: 13px; font-weight: 700;
+    cursor: pointer !important; transition: background .15s, transform .15s;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .mode-modal-submit:hover { background: #245a42; transform: translateY(-1px); }
+
+  .divider { height: 1px; background: var(--border); margin: 0; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) { .form-layout { grid-template-columns: 1fr; gap: 32px; } }
   @media (max-width: 768px) {
     .hero h1 { letter-spacing: -0.01em; }
     .nav-links { display: none; }
@@ -651,64 +521,92 @@
     .tl-card-header { flex-direction: column; gap: 6px; }
     .hero-actions { flex-direction: column; }
     .btn { justify-content: center; width: 100%; }
-    .modal { padding: 32px 20px; }
     .tl-footer { flex-direction: column; align-items: flex-start; }
     .tl-tanggapan-btn { width: 100%; justify-content: center; }
     .progress-steps { gap: 8px; }
     .progress-stat { min-width: calc(50% - 4px); flex: none; }
+    .mode-modal-box { border-radius: 16px; }
+    .mode-modal-header { padding: 18px 18px 14px; }
+    .mode-modal-options { padding: 12px 18px; }
+    .mode-modal-warning { margin: 0 18px 12px; }
+    .mode-modal-footer { padding: 0 18px 18px; }
   }
-.nav-logo-img {
-  height: 40px; /* Sesuaikan ukuran tinggi logo sesuai kebutuhan top bar-mu */
-  width: auto; /* Agar proporsi gambar tidak peyang */
-}
-.nav-logo-text {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 18px; /* Sesuaikan dengan kebutuhan */
-  color: #333; 
-}
-
-/* ── FILTER SELECT ── */
-.filter-select {
-  padding: 7px 36px 7px 14px;
-  border-radius: 8px;
-  border: 1.5px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  font-family: var(--font);
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer !important;
-  transition: all .15s;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7167' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  appearance: none;
-  -webkit-appearance: none;
-  min-width: 160px;
-}
-.filter-select:hover,
-.filter-select:focus {
-  border-color: var(--accent-light);
-  color: var(--accent);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(82,183,136,.12);
-}
 </style>
 </head>
 <body>
 
-<!-- CUSTOM CURSOR (desktop) -->
+<!-- CUSTOM CURSOR -->
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
+
+<!-- ══════════════════════════════════════════
+     MODE SELECTION MODAL
+     ══════════════════════════════════════════ -->
+<div id="modeModal" role="dialog" aria-modal="true" aria-labelledby="modeModalTitle" onclick="handleModeOverlayClick(event)">
+  <div class="mode-modal-box">
+
+    <!-- Header -->
+    <div class="mode-modal-header">
+      <div class="mode-modal-title" id="modeModalTitle">Pilih Mode Pengiriman</div>
+      <div class="mode-modal-sub">Sebelum aspirasimu terkirim, pilih apakah namamu akan ditampilkan atau disembunyikan di timeline publik.</div>
+    </div>
+
+    <!-- Options -->
+    <div class="mode-modal-options">
+
+      <!-- Anonim -->
+      <div class="mode-option-card" id="modeCardAnon" onclick="selectMode('anon')" role="radio" aria-checked="false" tabindex="0">
+        <div class="mode-option-icon anon">🎭</div>
+        <div class="mode-option-body">
+          <div class="mode-option-title">
+            Anonim
+            <span class="mode-option-badge anon">Privat</span>
+          </div>
+          <div class="mode-option-desc">Namamu <strong>tidak akan ditampilkan</strong> di timeline. Identitasmu tetap tersimpan secara internal oleh Dewan untuk keperluan tindak lanjut.</div>
+        </div>
+        <div class="mode-radio"><div class="mode-radio-dot"></div></div>
+      </div>
+
+      <!-- Publik -->
+      <div class="mode-option-card selected" id="modeCardPub" onclick="selectMode('pub')" role="radio" aria-checked="true" tabindex="0">
+        <div class="mode-option-icon pub">👤</div>
+        <div class="mode-option-body">
+          <div class="mode-option-title">
+            Tampilkan Identitas
+            <span class="mode-option-badge pub">Publik</span>
+          </div>
+          <div class="mode-option-desc">Nama dan NPM kamu akan <strong>terlihat</strong> oleh semua orang di timeline aspirasi. Pastikan kamu nyaman dengan ini.</div>
+        </div>
+        <div class="mode-radio"><div class="mode-radio-dot"></div></div>
+      </div>
+
+    </div>
+
+    <!-- Warning -->
+    <div class="mode-modal-warning">
+      <span class="mode-modal-warning-icon">⚠️</span>
+      <span>Meskipun memilih <strong>Anonim</strong>, identitas aslimu <strong>tetap direkam secara internal</strong> oleh Dewan untuk keperluan verifikasi dan akuntabilitas.</span>
+    </div>
+
+    <!-- Footer -->
+    <div class="mode-modal-footer">
+      <button class="mode-modal-cancel" onclick="closeModeModal()">Batal</button>
+      <button class="mode-modal-submit" id="modeSubmitBtn" onclick="confirmModeAndSubmit()">
+        Kirim Aspirasi
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </button>
+    </div>
+
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a class="nav-logo">
-  <img src="LogoDewan.png" alt="Logo Kawal HIFI" class="nav-logo-img">
-  <span class="nav-logo-text">Kawal HIFI</span>
-</a>
+      <img src="LogoDewan.png" alt="Logo Kawal HIFI" class="nav-logo-img">
+      <span class="nav-logo-text">Kawal HIFI</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#timeline">Timeline</a></li>
       <li><a href="#statistik">Statistik</a></li>
@@ -733,9 +631,7 @@
       Platform Aspirasi Warga HIFI
     </div>
     <h1>Dari Hati,<br/>Untuk <em>HIFI.</em></h1>
-    <p class="hero-desc">
-      Punya ide, pertanyaan, atau keluhan seputar HIFI, Prodi, Fakultas, maupun Departemen? Yuk, sampaikan di sini!
-    </p>
+    <p class="hero-desc">Punya ide, pertanyaan, atau keluhan seputar HIFI, Prodi, Fakultas, maupun Departemen? Yuk, sampaikan di sini!</p>
     <div class="hero-actions">
       <a href="#form-section" class="btn btn-primary">✦ Kirim Aspirasimu</a>
       <a href="#timeline" class="btn btn-ghost">Lihat Timeline</a>
@@ -774,7 +670,6 @@
     </div>
   </div>
   <div class="hero-visual">
-    <!-- Preview cards will be filled dynamically once data loads -->
     <div id="hero-preview-cards">
       <div class="loading-state" style="padding:32px 16px;">
         <div class="loading-spinner"></div>
@@ -794,44 +689,42 @@
       <h2 class="section-title">Semua Aspirasi</h2>
       <p class="section-sub">Terupdate secara real-time setiap ada kiriman baru dari warga HIFI.</p>
     </div>
-
     <div class="filter-bars-wrap">
-  <div class="filter-bar">
-    <span class="filter-label">Tujuan:</span>
-    <select class="filter-select" onchange="setFilterSelect('purpose', this.value)">
-      <option value="all">Semua</option>
-      <option value="Dewan">Dewan</option>
-      <option value="HIFI">HIFI</option>
-      <option value="Prodi">Prodi</option>
-      <option value="Fakultas">Fakultas</option>
-      <option value="Departemen">Departemen</option>
-      <option value="Rektorat">Rektorat</option>
-    </select>
-  </div>
-  <div class="filter-bar">
-    <span class="filter-label">Tipe:</span>
-    <select class="filter-select" onchange="setFilterSelect('type', this.value)">
-      <option value="all">Semua</option>
-      <option value="Administrasi">Administrasi</option>
-      <option value="Akademik">Akademik</option>
-      <option value="Beasiswa">Beasiswa</option>
-      <option value="Fasilitas">Fasilitas</option>
-      <option value="Pelayanan">Pelayanan</option>
-    </select>
-  </div>
-  <div class="filter-bar">
-    <span class="filter-label">Progress:</span>
-    <select class="filter-select" onchange="setFilterSelect('progress', this.value)">
-      <option value="all">Semua</option>
-      <option value="Diterima">Diterima</option>
-      <option value="Disampaikan">Disampaikan</option>
-      <option value="Direalisasikan">Direalisasikan</option>
-      <option value="Ditolak">Ditolak</option>
-      <option value="Tidak ada tanggapan">Tidak ada tanggapan</option>
-    </select>
-  </div>
-</div>
-
+      <div class="filter-bar">
+        <span class="filter-label">Tujuan:</span>
+        <select class="filter-select" onchange="setFilterSelect('purpose', this.value)">
+          <option value="all">Semua</option>
+          <option value="Dewan">Dewan</option>
+          <option value="HIFI">HIFI</option>
+          <option value="Prodi">Prodi</option>
+          <option value="Fakultas">Fakultas</option>
+          <option value="Departemen">Departemen</option>
+          <option value="Rektorat">Rektorat</option>
+        </select>
+      </div>
+      <div class="filter-bar">
+        <span class="filter-label">Tipe:</span>
+        <select class="filter-select" onchange="setFilterSelect('type', this.value)">
+          <option value="all">Semua</option>
+          <option value="Administrasi">Administrasi</option>
+          <option value="Akademik">Akademik</option>
+          <option value="Beasiswa">Beasiswa</option>
+          <option value="Fasilitas">Fasilitas</option>
+          <option value="Pelayanan">Pelayanan</option>
+        </select>
+      </div>
+      <div class="filter-bar">
+        <span class="filter-label">Progress:</span>
+        <select class="filter-select" onchange="setFilterSelect('progress', this.value)">
+          <option value="all">Semua</option>
+          <option value="Diterima">Diterima</option>
+          <option value="Disampaikan">Disampaikan</option>
+          <option value="Direalisasikan">Direalisasikan</option>
+          <option value="Ditolak">Ditolak</option>
+          <option value="Tidak ada tanggapan">Tidak ada tanggapan</option>
+        </select>
+      </div>
+    </div>
     <div class="timeline" id="timeline-list">
       <div class="loading-state">
         <div class="loading-spinner"></div>
@@ -887,16 +780,15 @@
       <div>
         <div class="section-label">✍️ Form Aspirasi</div>
         <h2 class="section-title" style="margin-bottom:12px;">Kirim Aspirasimu</h2>
-        <p style="color:var(--text-muted);font-size:14.5px;line-height:1.75;margin-bottom:20px;">
-          Suaramu sangat berarti bagi kami. Aspirasi yang masuk akan ditinjau oleh Dewan HIFI dan diteruskan ke pihak terkait sesuai tujuan yang kamu pilih.
-        </p>
+        <p style="color:var(--text-muted);font-size:14.5px;line-height:1.75;margin-bottom:20px;">Suaramu sangat berarti bagi kami. Aspirasi yang masuk akan ditinjau oleh Dewan HIFI dan diteruskan ke pihak terkait sesuai tujuan yang kamu pilih.</p>
         <div style="background:var(--accent-bg);border-radius:var(--radius);padding:18px 20px;border:1px solid #b7e4c7;">
           <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:10px;">📌 Yang perlu kamu tahu:</div>
           <ul style="font-size:13px;color:#2d6a4f;line-height:1.8;padding-left:16px;">
             <li>Aspirasimu akan tampil di timeline publik</li>
-            <li>Jika tidak anonim, nama &amp; NPM akan ditampilkan</li>
+            <li>Kamu akan memilih mode identitas sebelum mengirim</li>
             <li>Dewan HIFI akan menghubungi via kontak yang kamu berikan jika ada perkembangan</li>
             <li>Setiap aspirasi akan dikategorikan dan ditindaklanjuti</li>
+            <li>Identitas aslimu <strong>selalu tersimpan secara internal</strong> meskipun kirim anonim</li>
           </ul>
         </div>
       </div>
@@ -959,39 +851,17 @@
             <label>Isi Aspirasi <span>(jelaskan sejelas mungkin)</span></label>
             <textarea id="f-text" placeholder="Tuliskan aspirasimu dengan jelas di sini...&#10;&#10;Bila ada bukti foto atau screenshot, mohon sertakan link drive dan pastikan aksesnya dapat dibuka."></textarea>
           </div>
-            <div class="form-group full">
+          <div class="form-group full">
             <label>Link Bukti <span>(Google Drive, opsional)</span></label>
             <input type="url" id="f-drive" placeholder="https://drive.google.com/..." />
             <div class="form-warning" style="background:var(--blue-bg);border-color:#bfdbfe;color:#1e40af;">
-            <span class="form-warning-icon">🔒</span>
-            <span>Bersifat rahasia, tidak ditampilkan di publik. Link hanya dapat diakses oleh Dewan HIFI.</span>
+              <span class="form-warning-icon">🔒</span>
+              <span>Bersifat rahasia, tidak ditampilkan di publik. Link hanya dapat diakses oleh Dewan HIFI.</span>
             </div>
           </div>
           <div class="form-group full">
-            <label>Pilihan Identitas</label>
-            <div class="anon-options">
-              <div class="anon-toggle selected" id="toggle-public" onclick="selectAnon(false)">
-                <span class="toggle-icon">👤</span>
-                <div>
-                  <div class="toggle-title">Tampilkan Identitas</div>
-                  <div class="toggle-desc">Nama &amp; NPM akan terlihat di timeline</div>
-                </div>
-              </div>
-              <div class="anon-toggle" id="toggle-anon" onclick="selectAnon(true)">
-                <span class="toggle-icon">🙈</span>
-                <div>
-                  <div class="toggle-title">Kirim Anonim</div>
-                  <div class="toggle-desc">Identitasmu tersembunyi dari publik</div>
-                </div>
-              </div>
-            </div>
-            <div id="identity-warning" class="form-warning" style="margin-top:10px;">
-              <span class="form-warning-icon">ℹ️</span>
-              <span id="identity-warning-text">Dengan memilih <strong>Tampilkan Identitas</strong>, nama lengkap dan NPM kamu akan terlihat oleh publik di timeline aspirasi. Pastikan kamu nyaman dengan pilihan ini.</span>
-            </div>
-          </div>
-          <div class="form-group full">
-            <button class="submit-btn" id="submit-btn" onclick="submitForm()">
+            <!-- Submit button — opens mode selection modal -->
+            <button class="submit-btn" id="submit-btn" onclick="openModeModal()">
               <span>✦</span> Kirim Aspirasi Sekarang
             </button>
           </div>
@@ -1009,9 +879,7 @@
       <div style="position:relative;">
         <div class="cs-chip">🔬 Segera Hadir</div>
         <h2 class="cs-title">Analisis Sentimen<br/><em>Berbasis AI</em></h2>
-        <p class="cs-desc">
-          Kami sedang mengembangkan fitur analisis sentimen otomatis menggunakan kecerdasan buatan untuk memahami emosi dan urgensi di balik setiap aspirasi yang masuk.
-        </p>
+        <p class="cs-desc">Kami sedang mengembangkan fitur analisis sentimen otomatis menggunakan kecerdasan buatan untuk memahami emosi dan urgensi di balik setiap aspirasi yang masuk.</p>
         <div class="cs-features">
           <div class="cs-feature">😊 Deteksi Sentimen</div>
           <div class="cs-feature">📈 Tren Topik</div>
@@ -1030,71 +898,32 @@
 </footer>
 
 <!-- TANGGAPAN MODAL -->
-  <!-- TANGGAPAN MODAL -->
 <div class="modal-overlay" id="tanggapanModal" onclick="handleTanggapanOverlayClick(event)">
-  <div style="
-    background: var(--surface);
-    border-radius: var(--radius-lg);
-    max-width: 520px; width: 100%;
-    box-shadow: var(--shadow-lg);
-    overflow: hidden;
-    transform: scale(.95);
-    transition: transform .25s cubic-bezier(.34,1.56,.64,1);
-  " id="tanggapanModalInner">
-
-    <!-- Header -->
-    <div style="
-      background: linear-gradient(135deg, #1a4731, #2d6a4f);
-      padding: 22px 24px 18px;
-      display: flex; align-items: center; justify-content: space-between;
-    ">
+  <div style="background:var(--surface);border-radius:var(--radius-lg);max-width:520px;width:100%;box-shadow:var(--shadow-lg);overflow:hidden;transform:scale(.95);transition:transform .25s cubic-bezier(.34,1.56,.64,1);" id="tanggapanModalInner">
+    <div style="background:linear-gradient(135deg,#1a4731,#2d6a4f);padding:22px 24px 18px;display:flex;align-items:center;justify-content:space-between;">
       <div>
         <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px;">Detail Aspirasi</div>
         <div style="font-size:17px;font-weight:800;color:#fff;">Tanggapan Resmi</div>
       </div>
-      <button class="tanggapan-close-btn" onclick="closeTanggapan()" style="
-        background: rgba(255,255,255,.15); border: none; color: #fff;
-        width: 34px; height: 34px; border-radius: 50%;
-        font-size: 16px; cursor: pointer; display: flex;
-        align-items: center; justify-content: center;
-        transition: background .15s;
-      ">✕</button>
+      <button class="tanggapan-close-btn" onclick="closeTanggapan()" style="background:rgba(255,255,255,.15);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;">✕</button>
     </div>
-
-    <!-- Body -->
-    <div id="tanggapanContent" style="padding: 22px 24px 28px; max-height: 70vh; overflow-y: auto;"></div>
+    <div id="tanggapanContent" style="padding:22px 24px 28px;max-height:70vh;overflow-y:auto;"></div>
   </div>
 </div>
-<!-- THANK YOU MODAL -->
 <div class="modal-overlay" id="thankYouModal">
-  <div class="modal" id="thankYouModalInner">
+  <div id="thankYouModalInner">
     <canvas class="modal-confetti-canvas" id="celebrationCanvas"></canvas>
-
     <div class="modal-top">
-      <svg class="modal-rings" viewBox="0 0 140 140" fill="none">
-        <circle cx="70" cy="70" r="60" stroke="white" stroke-width="1.5"/>
-        <circle cx="70" cy="70" r="45" stroke="white" stroke-width="1.5"/>
-        <circle cx="70" cy="70" r="30" stroke="white" stroke-width="1.5"/>
-      </svg>
+      <svg class="modal-rings" viewBox="0 0 140 140" fill="none"><circle cx="70" cy="70" r="60" stroke="white" stroke-width="1.5"/><circle cx="70" cy="70" r="45" stroke="white" stroke-width="1.5"/><circle cx="70" cy="70" r="30" stroke="white" stroke-width="1.5"/></svg>
       <span class="modal-sparkle">🌿</span>
       <div class="modal-top-title">Aspirasi Terkirim!</div>
       <div class="modal-top-sub">Terima kasih sudah menyuarakan pendapatmu,<br/>Warga HIFI! 💚</div>
     </div>
-
     <div class="modal-body">
       <div class="modal-steps">
-        <div class="modal-step">
-          <span class="modal-step-icon">📬</span>
-          <div class="modal-step-text"><strong>Diterima</strong> — Aspirasimu sudah masuk ke sistem kami.</div>
-        </div>
-        <div class="modal-step">
-          <span class="modal-step-icon">🔍</span>
-          <div class="modal-step-text"><strong>Ditinjau</strong> — Dewan HIFI akan mereviu aspirasimu secepatnya.</div>
-        </div>
-        <div class="modal-step">
-          <span class="modal-step-icon">📡</span>
-          <div class="modal-step-text"><strong>Disampaikan</strong> — Aspirasi diteruskan ke pihak terkait.</div>
-        </div>
+        <div class="modal-step"><span class="modal-step-icon">📬</span><div class="modal-step-text"><strong>Diterima</strong> — Aspirasimu sudah masuk ke sistem kami.</div></div>
+        <div class="modal-step"><span class="modal-step-icon">🔍</span><div class="modal-step-text"><strong>Ditinjau</strong> — Dewan HIFI akan mereviu aspirasimu secepatnya.</div></div>
+        <div class="modal-step"><span class="modal-step-icon">📡</span><div class="modal-step-text"><strong>Disampaikan</strong> — Aspirasi diteruskan ke pihak terkait.</div></div>
       </div>
       <button class="modal-close" onclick="closeModal()">✓ Kembali ke Timeline</button>
     </div>
@@ -1102,64 +931,52 @@
 </div>
 
 <script>
-// ══════════════════════════════════════════════════
-// === KONFIGURASI AIRTABLE ===
-const AIRTABLE_PAT = 'pat12xjaCOgKLEMOM.278e7d0f38c4148e234d612877813b554aa5663b60d9545b2684dc6412516fca'; 
-const BASE_ID = 'appt1iyEvzc5vq9qK';       
+/* ════════════════════════════════════════════════
+   AIRTABLE CONFIG
+   ════════════════════════════════════════════════ */
+const AIRTABLE_PAT = 'pat12xjaCOgKLEMOM.278e7d0f38c4148e234d612877813b554aa5663b60d9545b2684dc6412516fca';
+const BASE_ID = 'appt1iyEvzc5vq9qK';
 const TABLE_NAME = 'aspirasi-dewan-db';
-
 const AIRTABLE_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
-// Variabel penampung global agar bisa dipakai oleh grafik dan filter UI
-let allData = []; 
+let allData = [];
 let activeFilters = { purpose: 'all', type: 'all', progress: 'all' };
 let visibleCount = 5;
-// === FUNGSI MENGAMBIL DATA (GET) UNTUK TIMELINE & CHART ===
-// Diubah namanya menjadi loadData agar cocok dengan inisialisasi di akhir script kamu
-async function loadData() {
-    try {
-        // Mengurutkan dari tanggal terbaru. Pastikan nama kolom di Airtable adalah "Tanggal"
-        const urlWithSort = `${AIRTABLE_URL}?sort[0][field]=Tanggal%20Pengirim&sort[0][direction]=desc`;
-        
-        const response = await fetch(urlWithSort, {
-            headers: { 'Authorization': `Bearer ${AIRTABLE_PAT}` }
-        });
 
-        if (!response.ok) throw new Error('Gagal memuat data');
-        
-        const rawData = await response.json();
-        
-        // Menerjemahkan format Airtable ke format yang dikenali UI (allData)
-        allData = rawData.records.map(record => {
-            const f = record.fields;
-            return {
-                id: record.id, // ID asli dari Airtable
-                name: f['Name'] || '',
-                npm: f['NPM'] || '',
-                angkatan: f['Angkatan'] || '',
-                purpose: f['Tujuan Aspirasi'] || '',
-                type: f['Tipe Aspirasi'] || '',
-                contact: f['Kontak'] || '',
-                text: f['Isi Aspirasi'] || '',
-                progress: f['Progres Aspirasi'] || 'Diterima',
-                anon: f['Tipe Identitas Pengirim'] === 'Anonim',
-                date: f['Tanggal Pengirim'] || '',
-                tanggapan: f['Tanggapan'] || ''
-            };
-        });
-        
-        // Panggil fungsi render UI kamu setelah data masuk
-        renderHeroPreview();
-        renderTimeline();
-        initCharts();
-        
-    } catch (error) {
-        console.error("Error loadData:", error);
-        document.getElementById('timeline-list').innerHTML = '<div style="padding:20px; text-align:center;">Gagal memuat aspirasi dari server.</div>';
-    }
+/* ── LOAD DATA ── */
+async function loadData() {
+  try {
+    const urlWithSort = `${AIRTABLE_URL}?sort[0][field]=Tanggal%20Pengirim&sort[0][direction]=desc`;
+    const response = await fetch(urlWithSort, { headers: { 'Authorization': `Bearer ${AIRTABLE_PAT}` } });
+    if (!response.ok) throw new Error('Gagal memuat data');
+    const rawData = await response.json();
+    allData = rawData.records.map(record => {
+      const f = record.fields;
+      return {
+        id: record.id,
+        name: f['Name'] || '',
+        npm: f['NPM'] || '',
+        angkatan: f['Angkatan'] || '',
+        purpose: f['Tujuan Aspirasi'] || '',
+        type: f['Tipe Aspirasi'] || '',
+        contact: f['Kontak'] || '',
+        text: f['Isi Aspirasi'] || '',
+        progress: f['Progres Aspirasi'] || 'Diterima',
+        anon: f['Tipe Identitas Pengirim'] === 'Anonim',
+        date: f['Tanggal Pengirim'] || '',
+        tanggapan: f['Tanggapan'] || ''
+      };
+    });
+    renderHeroPreview();
+    renderTimeline();
+    initCharts();
+  } catch (error) {
+    console.error('Error loadData:', error);
+    document.getElementById('timeline-list').innerHTML = '<div style="padding:20px;text-align:center;">Gagal memuat aspirasi dari server.</div>';
+  }
 }
 
-// ── HELPERS ──
+/* ── HELPERS ── */
 function getFilteredData() {
   return allData.filter(d => {
     if (activeFilters.purpose !== 'all' && d.purpose !== activeFilters.purpose) return false;
@@ -1168,7 +985,6 @@ function getFilteredData() {
     return true;
   }).sort((a, b) => new Date(b.date) - new Date(a.date));
 }
-
 function progressColor(p) {
   if (p === 'Diterima') return { dot: 'dot-amber', badge: 'badge-blue' };
   if (p === 'Direalisasikan') return { dot: '', badge: 'badge-green' };
@@ -1177,34 +993,16 @@ function progressColor(p) {
   return { dot: 'dot-gray', badge: 'badge-gray' };
 }
 function typeColor(t) {
-  const m = {
-    'Akademik': 'badge-blue',
-    'Fasilitas': 'badge-blue',
-    'Beasiswa': 'badge-amber',
-    'Administrasi': 'badge-gray',
-    'Pelayanan': 'badge-green'   // ← new
-  };
+  const m = { 'Akademik': 'badge-blue', 'Fasilitas': 'badge-blue', 'Beasiswa': 'badge-amber', 'Administrasi': 'badge-gray', 'Pelayanan': 'badge-green' };
   return m[t] || 'badge-gray';
 }
-
 function purposeColor(p) {
-  const m = {
-    'Dewan': 'badge-red',
-    'HIFI': 'badge-green',
-    'Prodi': 'badge-blue',
-    'Fakultas': 'badge-amber',
-    'Departemen': 'badge-gray',
-    'Rektorat': 'badge-red'
-  };
+  const m = { 'Dewan': 'badge-red', 'HIFI': 'badge-green', 'Prodi': 'badge-blue', 'Fakultas': 'badge-amber', 'Departemen': 'badge-gray', 'Rektorat': 'badge-red' };
   return m[p] || 'badge-gray';
 }
-  
 function formatDate(d) {
   const dateObj = new Date(d);
-  const tanggal = dateObj.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
-  const waktu = dateObj.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
-  
-  return `${tanggal} - ${waktu} WIB`;
+  return dateObj.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) + ' - ' + dateObj.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) + ' WIB';
 }
 function getInitials(name) {
   if (!name || name === 'Anonim') return '🙈';
@@ -1216,106 +1014,52 @@ function escapeHtml(s) {
   return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// ── HERO PREVIEW (top 3 data) ──
+/* ── HERO PREVIEW ── */
 function renderHeroPreview() {
   const container = document.getElementById('hero-preview-cards');
   const preview = [...allData].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
-  if (!preview.length) {
-    container.innerHTML = `<div style="text-align:center;padding:24px 0;color:var(--text-muted);font-size:13px;">Belum ada aspirasi masuk.</div>`;
-    return;
-  }
+  if (!preview.length) { container.innerHTML = `<div style="text-align:center;padding:24px 0;color:var(--text-muted);font-size:13px;">Belum ada aspirasi masuk.</div>`; return; }
   container.innerHTML = preview.map((d, i) => {
     const colorIdx = i % avatarColors.length;
-    const initials = getInitials(d.name);
     const pc = progressColor(d.progress);
-    return `
-    <div class="mini-card">
-      <div class="mini-avatar" style="background:${avatarColors[colorIdx]};color:${avatarTextColors[colorIdx]};">${initials}</div>
-      <div class="mini-card-body">
-        <div class="mini-card-name">${escapeHtml(d.anon ? 'Anonim' : d.name)} ${d.angkatan ? '· ' + d.angkatan : ''}</div>
-        <div class="mini-card-text">${escapeHtml((d.text || '').substring(0, 80))}${(d.text||'').length > 80 ? '…' : ''}</div>
-        <div><span class="mini-badge ${pc.badge}">${escapeHtml(d.progress)}</span> <span class="mini-badge ${typeColor(d.type)}">${escapeHtml(d.type)}</span></div>
-      </div>
-    </div>`;
+    return `<div class="mini-card"><div class="mini-avatar" style="background:${avatarColors[colorIdx]};color:${avatarTextColors[colorIdx]};">${getInitials(d.name)}</div><div class="mini-card-body"><div class="mini-card-name">${escapeHtml(d.anon ? 'Anonim' : d.name)} ${d.angkatan ? '· ' + d.angkatan : ''}</div><div class="mini-card-text">${escapeHtml((d.text||'').substring(0,80))}${(d.text||'').length>80?'…':''}</div><div><span class="mini-badge ${pc.badge}">${escapeHtml(d.progress)}</span> <span class="mini-badge ${typeColor(d.type)}">${escapeHtml(d.type)}</span></div></div></div>`;
   }).join('');
 }
 
-// ── TIMELINE RENDER ──
+/* ── TIMELINE RENDER ── */
 function renderTimeline() {
   const filtered = getFilteredData();
   const list = document.getElementById('timeline-list');
   const showBtn = document.getElementById('showMoreBtn');
   const toShow = filtered.slice(0, visibleCount);
-
-  if (filtered.length === 0) {
+  if (!filtered.length) {
     list.innerHTML = `<div class="empty-state"><div class="empty-state-icon">🔍</div><div>Tidak ada aspirasi yang sesuai filter.</div></div>`;
-    showBtn.style.display = 'none';
-    return;
+    showBtn.style.display = 'none'; return;
   }
-
   list.innerHTML = toShow.map((d, i) => {
     const pc = progressColor(d.progress);
     const colorIdx = i % avatarColors.length;
-    const initials = getInitials(d.name);
-    return `
-    <div class="timeline-item" data-id="${d.id}">
-      <div class="timeline-dot ${pc.dot}"></div>
-      <div class="tl-card">
-        <div class="tl-card-header">
-          <div class="tl-meta">
-            ${d.anon
-              ? `<span style="font-size:20px;">🙈</span>`
-              : `<div style="width:32px;height:32px;border-radius:50%;background:${avatarColors[colorIdx]};color:${avatarTextColors[colorIdx]};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;">${initials}</div>`
-            }
-            <div>
-              <div class="tl-name">${escapeHtml(d.anon ? 'Anonim' : d.name)} ${!d.anon && d.npm ? `<span style="font-size:11px;color:var(--text-muted);font-weight:400;">(${escapeHtml(d.npm)})</span>` : ''}</div>
-              <div style="font-size:11.5px;color:var(--text-muted);">Angkatan ${escapeHtml(String(d.angkatan || ''))}</div>
-            </div>
-          </div>
-          <div class="tl-date">${formatDate(d.date)}</div>
-        </div>
-        <div class="tl-text">${escapeHtml(d.text)}</div>
-        <div class="tl-footer">
-          <div class="tl-tags">
-            <span class="tl-tag ${pc.badge}">${escapeHtml(d.progress)}</span>
-            <span class="tl-tag ${purposeColor(d.purpose)}">${escapeHtml(d.purpose)}</span>
-            <span class="tl-tag ${typeColor(d.type)}">${escapeHtml(d.type)}</span>
-          </div>
-          <button class="tl-tanggapan-btn" onclick="openTanggapan('${d.id}')">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            Tanggapan
-          </button>
-        </div>
-      </div>
-    </div>`;
+    return `<div class="timeline-item" data-id="${d.id}"><div class="timeline-dot ${pc.dot}"></div><div class="tl-card"><div class="tl-card-header"><div class="tl-meta">${d.anon?`<span style="font-size:20px;">🙈</span>`:`<div style="width:32px;height:32px;border-radius:50%;background:${avatarColors[colorIdx]};color:${avatarTextColors[colorIdx]};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;">${getInitials(d.name)}</div>`}<div><div class="tl-name">${escapeHtml(d.anon?'Anonim':d.name)} ${!d.anon&&d.npm?`<span style="font-size:11px;color:var(--text-muted);font-weight:400;">(${escapeHtml(d.npm)})</span>`:''}</div><div style="font-size:11.5px;color:var(--text-muted);">Angkatan ${escapeHtml(String(d.angkatan||''))}</div></div></div><div class="tl-date">${formatDate(d.date)}</div></div><div class="tl-text">${escapeHtml(d.text)}</div><div class="tl-footer"><div class="tl-tags"><span class="tl-tag ${pc.badge}">${escapeHtml(d.progress)}</span><span class="tl-tag ${purposeColor(d.purpose)}">${escapeHtml(d.purpose)}</span><span class="tl-tag ${typeColor(d.type)}">${escapeHtml(d.type)}</span></div><button class="tl-tanggapan-btn" onclick="openTanggapan('${d.id}')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Tanggapan</button></div></div></div>`;
   }).join('');
-
   showBtn.style.display = filtered.length > visibleCount ? 'block' : 'none';
 }
-
-function setFilterSelect(key, val) {
-  activeFilters[key] = val;
-  visibleCount = 5;
-  renderTimeline();
-}
+function setFilterSelect(key, val) { activeFilters[key] = val; visibleCount = 5; renderTimeline(); }
 function showMore() { visibleCount += 5; renderTimeline(); }
 
-// ── CHARTS ──
+/* ── CHARTS ── */
 let charts = {};
 function initCharts() {
   const data = allData;
-  const purposeCounts = { Dewan: 0, HIFI: 0, Prodi: 0, Fakultas: 0, Departemen: 0, Rektorat: 0 };
-  const typeCounts    = { Administrasi: 0, Akademik: 0, Beasiswa: 0, Fasilitas: 0, Pelayanan: 0 };
-  const progressCounts = { 'Diterima':0,'Disampaikan': 0, 'Direalisasikan': 0, 'Ditolak': 0, 'Tidak ada tanggapan': 0 };
-  const angkatanCounts = { 2020: 0, 2021: 0, 2022: 0, 2023: 0, 2024: 0, 2025: 0 };
-
+  const purposeCounts = { Dewan:0, HIFI:0, Prodi:0, Fakultas:0, Departemen:0, Rektorat:0 };
+  const typeCounts    = { Administrasi:0, Akademik:0, Beasiswa:0, Fasilitas:0, Pelayanan:0 };
+  const progressCounts= { 'Diterima':0,'Disampaikan':0,'Direalisasikan':0,'Ditolak':0,'Tidak ada tanggapan':0 };
+  const angkatanCounts= { 2020:0, 2021:0, 2022:0, 2023:0, 2024:0, 2025:0 };
   data.forEach(d => {
-    if (purposeCounts[d.purpose] !== undefined) purposeCounts[d.purpose]++;
-    if (typeCounts[d.type] !== undefined) typeCounts[d.type]++;
-    if (progressCounts[d.progress] !== undefined) progressCounts[d.progress]++;
-    if (angkatanCounts[d.angkatan] !== undefined) angkatanCounts[d.angkatan]++;
+    if (purposeCounts[d.purpose]!==undefined) purposeCounts[d.purpose]++;
+    if (typeCounts[d.type]!==undefined) typeCounts[d.type]++;
+    if (progressCounts[d.progress]!==undefined) progressCounts[d.progress]++;
+    if (angkatanCounts[d.angkatan]!==undefined) angkatanCounts[d.angkatan]++;
   });
-
   document.getElementById('summary-stats').innerHTML = [
     { num: data.length, label: 'Total Aspirasi', color: 'var(--accent)' },
     { num: progressCounts['Direalisasikan'], label: 'Direalisasikan', color: 'var(--accent)' },
@@ -1323,97 +1067,198 @@ function initCharts() {
     { num: progressCounts['Diterima'], label: 'Diterima', color: 'var(--blue)' },
     { num: progressCounts['Ditolak'], label: 'Ditolak', color: 'var(--red)' },
     { num: progressCounts['Tidak ada tanggapan'], label: 'Tidak ada tanggapan', color: '#aaa' },
-  ].map(s => `<div class="progress-stat"><div class="progress-stat-num" style="color:${s.color}">${s.num}</div><div class="progress-stat-label">${s.label}</div></div>`).join('');
-
-  // Update hero stats
-  const setTxt = (id, val) => { const el = document.getElementById(id); if(el) el.textContent = val; };
-  
-  // Update hero stats (Aman dari null)
+  ].map(s=>`<div class="progress-stat"><div class="progress-stat-num" style="color:${s.color}">${s.num}</div><div class="progress-stat-label">${s.label}</div></div>`).join('');
+  const setTxt = (id, val) => { const el=document.getElementById(id); if(el) el.textContent=val; };
   setTxt('totalCount', data.length);
-  setTxt('realCount', progressCounts['Direalisasikan'] || 0);
-  setTxt('disampaikanCount', progressCounts['Disampaikan'] || 0);
-  setTxt('ditolakCount', progressCounts['Ditolak'] || 0);
-  setTxt('noResponseCount', progressCounts['Tidak ada tanggapan'] || 0);
-
+  setTxt('realCount', progressCounts['Direalisasikan']||0);
+  setTxt('disampaikanCount', progressCounts['Disampaikan']||0);
+  setTxt('ditolakCount', progressCounts['Ditolak']||0);
+  setTxt('noResponseCount', progressCounts['Tidak ada tanggapan']||0);
   const total = data.length || 1;
-  
-  // Helper anti-error untuk update progress bar
-  const setW = (id, val) => { const el = document.getElementById(id); if(el) el.style.width = val; };
-  
+  const setW = (id, val) => { const el=document.getElementById(id); if(el) el.style.width=val; };
   setTimeout(() => {
-    setW('totalBar', '100%');
-    setW('realBar', ((progressCounts['Direalisasikan'] || 0) / total * 100) + '%');
-    setW('disampaikanBar', ((progressCounts['Disampaikan'] || 0) / total * 100) + '%');
-    setW('ditolakBar', ((progressCounts['Ditolak'] || 0) / total * 100) + '%');
-    setW('noResponseBar', ((progressCounts['Tidak ada tanggapan'] || 0) / total * 100) + '%');
+    setW('totalBar','100%');
+    setW('realBar', ((progressCounts['Direalisasikan']||0)/total*100)+'%');
+    setW('disampaikanBar', ((progressCounts['Disampaikan']||0)/total*100)+'%');
+    setW('ditolakBar', ((progressCounts['Ditolak']||0)/total*100)+'%');
+    setW('noResponseBar', ((progressCounts['Tidak ada tanggapan']||0)/total*100)+'%');
   }, 200);
-
-  const chartOpts = {
-    responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 12, font: { family: 'Plus Jakarta Sans', size: 11 } } } }
-  };
-  const colors = ['#2d6a4f', '#52b788', '#e9a23b', '#c0392b', '#2563eb', '#7c3aed'];
-
-  if (charts.purpose) charts.purpose.destroy();
-  charts.purpose = new Chart(document.getElementById('chartPurpose'), {
-    type: 'doughnut',
-    data: { labels: Object.keys(purposeCounts), datasets: [{ data: Object.values(purposeCounts), backgroundColor: colors, borderWidth: 0, hoverOffset: 4 }] },
-    options: { ...chartOpts }
-  });
-
-  if (charts.type) charts.type.destroy();
-  charts.type = new Chart(document.getElementById('chartType'), {
-    type: 'doughnut',
-    data: { labels: Object.keys(typeCounts), datasets: [{ data: Object.values(typeCounts), backgroundColor: ['#2563eb', '#52b788', '#e9a23b', '#7c3aed'], borderWidth: 0, hoverOffset: 4 }] },
-    options: { ...chartOpts }
-  });
-
-  if (charts.progress) charts.progress.destroy();
-  charts.progress = new Chart(document.getElementById('chartProgress'), {
-    type: 'bar',
-    data: {
-      labels: Object.keys(progressCounts).map(l => l.length > 12 ? l.substring(0, 12) + '…' : l),
-      datasets: [{ data: Object.values(progressCounts), backgroundColor: ['#e9a23b', '#52b788', '#c0392b', '#aaa'], borderRadius: 6, borderSkipped: false }]
-    },
-    options: {
-      ...chartOpts, indexAxis: 'y',
-      plugins: { ...chartOpts.plugins, legend: { display: false } },
-      scales: { x: { grid: { display: false }, ticks: { font: { family: 'Plus Jakarta Sans', size: 11 } } }, y: { grid: { display: false }, ticks: { font: { family: 'Plus Jakarta Sans', size: 11 } } } }
-    }
-  });
-
-  if (charts.angkatan) charts.angkatan.destroy();
-  charts.angkatan = new Chart(document.getElementById('chartAngkatan'), {
-    type: 'bar',
-    data: {
-      labels: Object.keys(angkatanCounts),
-      datasets: [{ data: Object.values(angkatanCounts), backgroundColor: 'rgba(45,106,79,.85)', borderRadius: 6, borderSkipped: false }]
-    },
-    options: {
-      ...chartOpts,
-      plugins: { ...chartOpts.plugins, legend: { display: false } },
-      scales: { x: { grid: { display: false }, ticks: { font: { family: 'Plus Jakarta Sans', size: 11 } } }, y: { grid: { color: 'rgba(0,0,0,.04)' }, ticks: { font: { family: 'Plus Jakarta Sans', size: 11 }, stepSize: 1 } } }
-    }
-  });
+  const chartOpts = { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:12,font:{family:'Plus Jakarta Sans',size:11}}}} };
+  const colors = ['#2d6a4f','#52b788','#e9a23b','#c0392b','#2563eb','#7c3aed'];
+  if(charts.purpose) charts.purpose.destroy();
+  charts.purpose = new Chart(document.getElementById('chartPurpose'),{type:'doughnut',data:{labels:Object.keys(purposeCounts),datasets:[{data:Object.values(purposeCounts),backgroundColor:colors,borderWidth:0,hoverOffset:4}]},options:{...chartOpts}});
+  if(charts.type) charts.type.destroy();
+  charts.type = new Chart(document.getElementById('chartType'),{type:'doughnut',data:{labels:Object.keys(typeCounts),datasets:[{data:Object.values(typeCounts),backgroundColor:['#2563eb','#52b788','#e9a23b','#7c3aed'],borderWidth:0,hoverOffset:4}]},options:{...chartOpts}});
+  if(charts.progress) charts.progress.destroy();
+  charts.progress = new Chart(document.getElementById('chartProgress'),{type:'bar',data:{labels:Object.keys(progressCounts).map(l=>l.length>12?l.substring(0,12)+'…':l),datasets:[{data:Object.values(progressCounts),backgroundColor:['#e9a23b','#52b788','#c0392b','#aaa'],borderRadius:6,borderSkipped:false}]},options:{...chartOpts,indexAxis:'y',plugins:{...chartOpts.plugins,legend:{display:false}},scales:{x:{grid:{display:false},ticks:{font:{family:'Plus Jakarta Sans',size:11}}},y:{grid:{display:false},ticks:{font:{family:'Plus Jakarta Sans',size:11}}}}}});
+  if(charts.angkatan) charts.angkatan.destroy();
+  charts.angkatan = new Chart(document.getElementById('chartAngkatan'),{type:'bar',data:{labels:Object.keys(angkatanCounts),datasets:[{data:Object.values(angkatanCounts),backgroundColor:'rgba(45,106,79,.85)',borderRadius:6,borderSkipped:false}]},options:{...chartOpts,plugins:{...chartOpts.plugins,legend:{display:false}},scales:{x:{grid:{display:false},ticks:{font:{family:'Plus Jakarta Sans',size:11}}},y:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{family:'Plus Jakarta Sans',size:11},stepSize:1}}}}});
 }
 
-// ── FORM ──
-let isAnon = false;
-function selectAnon(val) {
-  isAnon = val;
-  document.getElementById('toggle-public').classList.toggle('selected', !val);
-  document.getElementById('toggle-anon').classList.toggle('selected', val);
-  const warn = document.getElementById('identity-warning');
-  const warnText = document.getElementById('identity-warning-text');
-  if (val) {
-    warn.style.background = 'var(--blue-bg)'; warn.style.borderColor = '#bfdbfe'; warn.style.color = '#1e40af';
-    warnText.innerHTML = 'Kamu memilih <strong>Anonim</strong>. Nama dan NPM kamu tidak akan terlihat di timeline. Namun kontak kamu tetap tersimpan di sistem kami.';
+/* ══════════════════════════════════════════════
+   MODE SELECTION MODAL
+   ══════════════════════════════════════════════ */
+var pendingMode = 'pub'; // default: publik
+
+function openModeModal() {
+  /* Validate form first before opening modal */
+  const text = (document.getElementById('f-text')?.value || '').trim();
+  const purposeRaw = (document.getElementById('f-purpose')?.value || '').trim();
+  const purpose = purposeRaw === 'other' ? (document.getElementById('f-purpose-custom')?.value || '').trim() : purposeRaw;
+  const typeRaw = (document.getElementById('f-type')?.value || '').trim();
+  const type = typeRaw === 'other' ? (document.getElementById('f-type-custom')?.value || '').trim() : typeRaw;
+  const name = (document.getElementById('f-name')?.value || '').trim();
+
+  if (!text) { alert('Mohon isi isi aspirasi kamu terlebih dahulu.'); return; }
+  if (!purpose) { alert('Mohon pilih atau isi tujuan aspirasi.'); return; }
+  if (!type) { alert('Mohon pilih atau isi tipe aspirasi.'); return; }
+
+  /* Reset to default (publik) each time modal opens */
+  selectMode('pub');
+
+  document.getElementById('modeModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModeModal() {
+  document.getElementById('modeModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function selectMode(mode) {
+  pendingMode = mode;
+  const cardAnon = document.getElementById('modeCardAnon');
+  const cardPub  = document.getElementById('modeCardPub');
+  if (mode === 'anon') {
+    cardAnon.classList.add('selected');    cardAnon.setAttribute('aria-checked', 'true');
+    cardPub.classList.remove('selected');  cardPub.setAttribute('aria-checked', 'false');
   } else {
-    warn.style.background = 'var(--amber-bg)'; warn.style.borderColor = '#f5d48a'; warn.style.color = '#7a4f10';
-    warnText.innerHTML = 'Dengan memilih <strong>Tampilkan Identitas</strong>, nama lengkap dan NPM kamu akan terlihat oleh publik di timeline aspirasi. Pastikan kamu nyaman dengan pilihan ini.';
+    cardPub.classList.add('selected');     cardPub.setAttribute('aria-checked', 'true');
+    cardAnon.classList.remove('selected'); cardAnon.setAttribute('aria-checked', 'false');
   }
 }
 
+function handleModeOverlayClick(e) {
+  if (e.target === document.getElementById('modeModal')) closeModeModal();
+}
+
+/* Called when user clicks "Kirim Aspirasi" in the mode modal */
+async function confirmModeAndSubmit() {
+  const isAnon = pendingMode === 'anon';
+
+  /* Extra validation for non-anon */
+  const name = (document.getElementById('f-name')?.value || '').trim();
+  if (!isAnon && !name) { alert('Mohon isi nama kamu atau pilih kirim anonim.'); return; }
+
+  /* Disable button */
+  const btn = document.getElementById('modeSubmitBtn');
+  btn.disabled = true;
+  btn.innerHTML = '⏳ Mengirim...';
+
+  closeModeModal();
+
+  /* Also disable main submit button */
+  const mainBtn = document.getElementById('submit-btn');
+  mainBtn.disabled = true;
+  mainBtn.innerHTML = '<span>⏳</span> Mengirim...';
+
+  const npm      = (document.getElementById('f-npm')?.value || '').trim();
+  const angkatan = (document.getElementById('f-angkatan')?.value || '') === 'other'
+    ? (document.getElementById('f-angkatan-custom')?.value || '').trim()
+    : (document.getElementById('f-angkatan')?.value || '').trim();
+  const purposeRaw = (document.getElementById('f-purpose')?.value || '').trim();
+  const purpose  = purposeRaw === 'other' ? (document.getElementById('f-purpose-custom')?.value || '').trim() : purposeRaw;
+  const typeRaw  = (document.getElementById('f-type')?.value || '').trim();
+  const type     = typeRaw === 'other' ? (document.getElementById('f-type-custom')?.value || '').trim() : typeRaw;
+  const contact  = (document.getElementById('f-contact')?.value || '').trim();
+  const text     = (document.getElementById('f-text')?.value || '').trim();
+  const drive    = (document.getElementById('f-drive')?.value || '').trim();
+
+  /*
+    IDENTITY RECORDING LOGIC:
+    ─────────────────────────
+    Two layers of fields in Airtable:
+
+    PUBLIC-FACING (what the timeline renders):
+      • "Name"  → 'Anonim' when user chose Anonim, real name when Publik
+      • "NPM"   → ''       when user chose Anonim, real NPM  when Publik
+
+    INTERNAL-ONLY (always the real data, regardless of mode):
+      • "Nama Asli Pengirim" → always the real name the user typed
+      • "NPM Asli Pengirim"  → always the real NPM  the user typed
+      • "Kontak"             → always stored (never shown publicly)
+      • "Tipe Identitas Pengirim" → 'Anonim' | 'Publik'
+
+    So even if someone picks Anonim, the Dewan can open Airtable
+    and see "Nama Asli Pengirim" and "NPM Asli Pengirim" columns
+    to know exactly who sent it.
+
+    ⚠️  Make sure these two columns exist in your Airtable table:
+        - "Nama Asli Pengirim"  (Single line text)
+        - "NPM Asli Pengirim"   (Single line text)
+  */
+  const payload = {
+    records: [{
+      fields: {
+        /* ── PUBLIC-FACING fields (masked when Anonim) ── */
+        'Name'                   : isAnon ? 'Anonim' : (name || 'Anonim'),
+        'NPM'                    : isAnon ? ''        : npm,
+
+        /* ── INTERNAL-ONLY fields (always real, never shown publicly) ── */
+        'Nama Asli Pengirim'     : name || '',   /* real name, always saved */
+        'NPM Asli Pengirim'      : npm  || '',   /* real NPM,  always saved */
+
+        /* ── Other fields ── */
+        'Angkatan'               : String(angkatan || new Date().getFullYear()),
+        'Tujuan Aspirasi'        : purpose,
+        'Tipe Aspirasi'          : type,
+        'Kontak'                 : contact,      /* internal only, never rendered publicly */
+        'Isi Aspirasi'           : text,
+        'Progres Aspirasi'       : 'Diterima',
+        'Tipe Identitas Pengirim': isAnon ? 'Anonim' : 'Publik',
+        'Link Bukti'             : drive,
+        'Tanggal Pengirim'       : new Date().toISOString()
+      }
+    }]
+  };
+
+  try {
+    const res = await fetch(AIRTABLE_URL, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${AIRTABLE_PAT}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) {
+      const errData = await res.json();
+      console.error('Detail Penolakan Airtable:', errData);
+      throw new Error(`Data ditolak oleh server (Status: ${res.status})`);
+    }
+    await loadData();
+    document.getElementById('thankYouModal').classList.add('open');
+    resetForm();
+  } catch (e) {
+    alert('Maaf, aspirasi gagal terkirim. Terjadi kesalahan pada sistem. Silakan hubungi admin HIFI jika masalah berlanjut.');
+    console.error('Sistem Error:', e);
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = 'Kirim Aspirasi <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>';
+    mainBtn.disabled = false;
+    mainBtn.innerHTML = '<span>✦</span> Kirim Aspirasi Sekarang';
+  }
+}
+
+/* keyboard support for mode cards */
+document.addEventListener('keydown', function(e) {
+  const modal = document.getElementById('modeModal');
+  if (e.key === 'Escape' && modal.classList.contains('open')) closeModeModal();
+});
+document.querySelectorAll('.mode-option-card').forEach(function(el) {
+  el.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+  });
+});
+
+/* ── FORM HELPERS ── */
 function setupOther(selectId, wrapId) {
   document.getElementById(selectId).addEventListener('change', function () {
     document.getElementById(wrapId).classList.toggle('visible', this.value === 'other');
@@ -1423,125 +1268,29 @@ setupOther('f-purpose', 'purpose-other-wrap');
 setupOther('f-type', 'type-other-wrap');
 setupOther('f-angkatan', 'angkatan-other-wrap');
 
-function getVal(id) { return (document.getElementById(id)?.value || '').trim(); }
-
-async function submitForm() {
-    const name = getVal('f-name');
-    const npm = getVal('f-npm');
-    const angkatan = getVal('f-angkatan') === 'other' ? getVal('f-angkatan-custom') : getVal('f-angkatan');
-    const purposeRaw = getVal('f-purpose');
-    const purpose = purposeRaw === 'other' ? getVal('f-purpose-custom') : purposeRaw;
-    const typeRaw = getVal('f-type');
-    const type = typeRaw === 'other' ? getVal('f-type-custom') : typeRaw;
-    const contact = getVal('f-contact');
-    const text = getVal('f-text');
-
-    if (!text) { alert('Mohon isi isi aspirasi kamu terlebih dahulu.'); return; }
-    if (!purpose) { alert('Mohon pilih atau isi tujuan aspirasi.'); return; }
-    if (!type) { alert('Mohon pilih atau isi tipe aspirasi.'); return; }
-    if (!isAnon && !name) { alert('Mohon isi nama kamu atau pilih kirim anonim.'); return; }
-
-    const btn = document.getElementById('submit-btn');
-    btn.disabled = true;
-    btn.innerHTML = '<span>⏳</span> Mengirim...';
-
-    // Membungkus data sesuai standar Airtable
-    const payload = {
-        "records": [
-            {
-                "fields": {
-                    "Name": isAnon ? 'Anonim' : (name || 'Anonim'),
-                    "NPM": isAnon ? '' : npm,
-                    "Angkatan": String(angkatan || new Date().getFullYear()), // Pastikan jadi String
-                    "Tujuan Aspirasi": purpose,
-                    "Tipe Aspirasi": type,
-                    "Kontak": contact,
-                    "Isi Aspirasi": text,
-                    "Progres Aspirasi": "Diterima",
-                    "Tipe Identitas Pengirim": isAnon ? "Anonim" : "Publik",
-                    "Link Bukti": getVal('f-drive'),
-                    "Tanggal Pengirim": new Date().toISOString()
-                }
-            }
-        ]
-    };
-
-    try {
-        const res = await fetch(AIRTABLE_URL, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${AIRTABLE_PAT}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        });
-        
-        // Cek jika Airtable menolak data (misal error 422 atau 400)
-        if (!res.ok) {
-            const errData = await res.json();
-            console.error("Detail Penolakan Airtable:", errData);
-            throw new Error(`Data ditolak oleh server (Status: ${res.status})`);
-        }
-        
-        await loadData(); // Reload UI otomatis dengan data terbaru
-        document.getElementById('thankYouModal').classList.add('open');
-        resetForm();
-        
-    } catch (e) {
-        // Nah, ini pesan error barunya! (Tidak menyalahkan internet lagi)
-        alert('Maaf, aspirasi gagal terkirim. Terjadi kesalahan pada sistem atau format data tidak sesuai. Silakan hubungi admin HIFI jika masalah berlanjut.');
-        console.error("Sistem Error:", e);
-        
-    } finally {
-        // Mengembalikan tombol ke keadaan semula
-        btn.disabled = false;
-        btn.innerHTML = '<span>✦</span> Kirim Aspirasi Sekarang';
-    }
-}
-
 function resetForm() {
-  ['f-name', 'f-npm', 'f-contact', 'f-text', 'f-purpose-custom',  'f-drive','f-type-custom', 'f-angkatan-custom'].forEach(id => {
-    const el = document.getElementById(id); if (el) el.value = '';
-  });
-  ['f-angkatan', 'f-purpose', 'f-type'].forEach(id => {
-    const el = document.getElementById(id); if (el) el.value = '';
-  });
+  ['f-name','f-npm','f-contact','f-text','f-purpose-custom','f-drive','f-type-custom','f-angkatan-custom'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
+  ['f-angkatan','f-purpose','f-type'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
   document.querySelectorAll('.custom-other').forEach(el => el.classList.remove('visible'));
-  selectAnon(false);
   visibleCount = 5;
-  activeFilters = { purpose: 'all', type: 'all', progress: 'all' };
-  // Reset the filter selects back to "Semua"
+  activeFilters = { purpose:'all', type:'all', progress:'all' };
   document.querySelectorAll('.filter-select').forEach(sel => sel.value = 'all');
 }
-  
-function closeModal() { document.getElementById('thankYouModal').classList.remove('open'); }
 
-// ── TANGGAPAN MODAL ──
+/* ── TANGGAPAN MODAL ── */
 function openTanggapan(id) {
   const d = allData.find(x => String(x.id) === String(id));
   if (!d) return;
   const pc = progressColor(d.progress);
   const hasTanggapan = d.tanggapan && d.tanggapan.trim() !== '';
   document.getElementById('tanggapanContent').innerHTML = `
-    <div class="tanggapan-aspiration-box">
-      <div class="tanggapan-aspiration-label">Aspirasi</div>
-      <div class="tanggapan-aspiration-text">${escapeHtml(d.text)}</div>
-    </div>
-    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;">
-      <span class="tl-tag ${pc.badge}">${escapeHtml(d.progress)}</span>
-      <span class="tl-tag ${purposeColor(d.purpose)}">${escapeHtml(d.purpose)}</span>
-      <span class="tl-tag ${typeColor(d.type)}">${escapeHtml(d.type)}</span>
-    </div>
+    <div class="tanggapan-aspiration-box"><div class="tanggapan-aspiration-label">Aspirasi</div><div class="tanggapan-aspiration-text">${escapeHtml(d.text)}</div></div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;"><span class="tl-tag ${pc.badge}">${escapeHtml(d.progress)}</span><span class="tl-tag ${purposeColor(d.purpose)}">${escapeHtml(d.purpose)}</span><span class="tl-tag ${typeColor(d.type)}">${escapeHtml(d.type)}</span></div>
     <div class="tanggapan-divider"></div>
-    <div class="tanggapan-response-label">
-      <span class="tanggapan-response-dot"></span>Tanggapan Resmi
-    </div>
+    <div class="tanggapan-response-label"><span class="tanggapan-response-dot"></span>Tanggapan Resmi</div>
     ${hasTanggapan
       ? `<div class="tanggapan-response-text">${escapeHtml(d.tanggapan)}</div>`
-      : `<div class="tanggapan-empty">
-           <div class="tanggapan-empty-icon">🔕</div>
-           <div class="tanggapan-empty-text">Belum ada tanggapan resmi untuk aspirasi ini.<br/>Kami akan memperbarui informasi ini segera setelah ada perkembangan.</div>
-         </div>`
+      : `<div class="tanggapan-empty"><div class="tanggapan-empty-icon">🔕</div><div class="tanggapan-empty-text">Belum ada tanggapan resmi untuk aspirasi ini.<br/>Kami akan memperbarui informasi ini segera setelah ada perkembangan.</div></div>`
     }`;
   document.getElementById('tanggapanModal').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1554,128 +1303,85 @@ function handleTanggapanOverlayClick(e) {
   if (e.target === document.getElementById('tanggapanModal')) closeTanggapan();
 }
 
-// ── HAMBURGER ──
-function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
-function closeNav() { document.getElementById('mobileNav').classList.remove('open'); }
-
-// ── MODALS ──
-document.getElementById('thankYouModal').addEventListener('click', function (e) { if (e.target === this) closeModal(); });
-
-// ── CUSTOM CURSOR (desktop only) ──
-if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-  const dot = document.getElementById('cursor-dot');
-  const ring = document.getElementById('cursor-ring');
-  if (dot && ring) {
-    let mx = -100, my = -100, rx = -100, ry = -100;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    (function loop() {
-      rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14;
-      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-      requestAnimationFrame(loop);
-    })();
-    const interactive = 'a, button, input, select, textarea, label, .filter-btn, .anon-toggle, .mini-card, .tl-card, .hero-stat-item, .tl-tanggapan-btn, .tanggapan-close-btn';
-    document.querySelectorAll(interactive).forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-    });
-    document.addEventListener('mouseleave', () => { mx = -100; my = -100; });
-  }
+/* ── THANK YOU MODAL ── */
+function closeModal() {
+  document.getElementById('thankYouModal').classList.remove('open');
+  const canvas = document.getElementById('celebrationCanvas');
+  if (canvas) { const ctx=canvas.getContext('2d'); ctx.clearRect(0,0,canvas.width,canvas.height); }
 }
+document.getElementById('thankYouModal').addEventListener('click', function(e) { if(e.target===this) closeModal(); });
+document.getElementById('thankYouModal').addEventListener('transitionend', function handler(e) {
+  if (e.propertyName==='opacity' && this.classList.contains('open')) {
+    launchCelebration();
+    this.removeEventListener('transitionend', handler);
+    this.addEventListener('transitionend', handler);
+  }
+});
+
+/* ── CONFETTI ── */
 function launchCelebration() {
   const modal = document.getElementById('thankYouModalInner');
   const canvas = document.getElementById('celebrationCanvas');
   if (!canvas || !modal) return;
- 
-  canvas.width = modal.offsetWidth;
-  canvas.height = modal.offsetHeight;
+  canvas.width = modal.offsetWidth; canvas.height = modal.offsetHeight;
   const ctx = canvas.getContext('2d');
- 
-  const colors = [
-    '#2d6a4f', '#52b788', '#95d5b2', '#d8f3dc',
-    '#1b4332', '#74c69d', '#b7e4c7', '#40916c'
-  ];
- 
-  const pieces = Array.from({ length: 72 }, () => ({
-    x: Math.random() * canvas.width,
-    y: -10 - Math.random() * 80,
-    r: 3 + Math.random() * 5,
-    color: colors[Math.floor(Math.random() * colors.length)],
-    vx: (Math.random() - 0.5) * 2.5,
-    vy: 2.5 + Math.random() * 3,
-    spin: Math.random() * 0.3 - 0.15,
-    angle: Math.random() * Math.PI * 2,
-    shape: Math.random() > 0.5 ? 'rect' : 'circle',
-    w: 5 + Math.random() * 8,
-    h: 3 + Math.random() * 5,
-    opacity: 1,
+  const colors = ['#2d6a4f','#52b788','#95d5b2','#d8f3dc','#1b4332','#74c69d','#b7e4c7','#40916c'];
+  const pieces = Array.from({length:72}, () => ({
+    x:Math.random()*canvas.width, y:-10-Math.random()*80, r:3+Math.random()*5,
+    color:colors[Math.floor(Math.random()*colors.length)],
+    vx:(Math.random()-.5)*2.5, vy:2.5+Math.random()*3, spin:Math.random()*.3-.15,
+    angle:Math.random()*Math.PI*2, shape:Math.random()>.5?'rect':'circle',
+    w:5+Math.random()*8, h:3+Math.random()*5, opacity:1,
   }));
- 
-  let frame;
-  let startTime = null;
-  const duration = 2800;
- 
+  let frame; let startTime = null; const duration = 2800;
   function draw(ts) {
     if (!startTime) startTime = ts;
     const elapsed = ts - startTime;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
- 
+    ctx.clearRect(0,0,canvas.width,canvas.height);
     pieces.forEach(p => {
-      p.y += p.vy;
-      p.x += p.vx;
-      p.angle += p.spin;
-      p.vy += 0.04;
-      p.opacity = Math.max(0, 1 - Math.max(0, elapsed - 1800) / 1000);
- 
-      ctx.save();
-      ctx.globalAlpha = p.opacity;
-      ctx.translate(p.x, p.y);
-      ctx.rotate(p.angle);
-      ctx.fillStyle = p.color;
-      if (p.shape === 'rect') {
-        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
-      } else {
-        ctx.beginPath();
-        ctx.arc(0, 0, p.r, 0, Math.PI * 2);
-        ctx.fill();
-      }
+      p.y+=p.vy; p.x+=p.vx; p.angle+=p.spin; p.vy+=.04;
+      p.opacity = Math.max(0, 1-Math.max(0,elapsed-1800)/1000);
+      ctx.save(); ctx.globalAlpha=p.opacity; ctx.translate(p.x,p.y); ctx.rotate(p.angle); ctx.fillStyle=p.color;
+      if(p.shape==='rect'){ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);}else{ctx.beginPath();ctx.arc(0,0,p.r,0,Math.PI*2);ctx.fill();}
       ctx.restore();
     });
- 
-    if (elapsed < duration) {
-      frame = requestAnimationFrame(draw);
-    } else {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
+    if (elapsed<duration){frame=requestAnimationFrame(draw);}else{ctx.clearRect(0,0,canvas.width,canvas.height);}
   }
- 
   if (frame) cancelAnimationFrame(frame);
   frame = requestAnimationFrame(draw);
 }
- 
-// ── OVERRIDE closeModal to also stop canvas ──
-function closeModal() {
-  document.getElementById('thankYouModal').classList.remove('open');
-  const canvas = document.getElementById('celebrationCanvas');
-  if (canvas) { const ctx = canvas.getContext('2d'); ctx.clearRect(0, 0, canvas.width, canvas.height); }
-}
- 
-// ── PATCH thankYouModal open to trigger confetti ──
-const _origOpen = document.getElementById('thankYouModal').classList.add.bind(document.getElementById('thankYouModal').classList);
-document.getElementById('thankYouModal').addEventListener('transitionend', function handler(e) {
-  if (e.propertyName === 'opacity' && this.classList.contains('open')) {
-    launchCelebration();
-    this.removeEventListener('transitionend', handler);
-    // re-attach for next open
-    this.addEventListener('transitionend', handler);
+window.addEventListener('resize', () => {
+  const modal=document.getElementById('thankYouModalInner'), canvas=document.getElementById('celebrationCanvas');
+  if(modal&&canvas){canvas.width=modal.offsetWidth;canvas.height=modal.offsetHeight;}
+});
+
+/* ── NAV ── */
+function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+function closeNav() { document.getElementById('mobileNav').classList.remove('open'); }
+
+/* ── CUSTOM CURSOR ── */
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (dot && ring) {
+    let mx=-100, my=-100, rx=-100, ry=-100;
+    document.addEventListener('mousemove', e=>{mx=e.clientX;my=e.clientY;});
+    (function loop(){
+      rx+=(mx-rx)*.14; ry+=(my-ry)*.14;
+      dot.style.left=mx+'px'; dot.style.top=my+'px';
+      ring.style.left=rx+'px'; ring.style.top=ry+'px';
+      requestAnimationFrame(loop);
+    })();
+    const interactive = 'a,button,input,select,textarea,label,.filter-select,.anon-toggle,.mini-card,.tl-card,.hero-stat-item,.tl-tanggapan-btn,.tanggapan-close-btn,.mode-option-card';
+    document.querySelectorAll(interactive).forEach(el=>{
+      el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
+    });
+    document.addEventListener('mouseleave',()=>{mx=-100;my=-100;});
   }
-});
-  window.addEventListener('resize', () => {
-  const modal = document.getElementById('thankYouModalInner');
-  const canvas = document.getElementById('celebrationCanvas');
-  if (modal && canvas) { canvas.width = modal.offsetWidth; canvas.height = modal.offsetHeight; }
-});
-// ── INIT ──
+}
+
+/* ── INIT ── */
 loadData();
 </script>
 </body>
